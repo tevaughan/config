@@ -1,0 +1,33 @@
+
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:ycm_always_populate_loc_list = 1
+let g:ycm_confirm_extra_conf = 0
+
+if &term == "xterm" || &term == "rxvt"
+   set t_Co=256
+   colorscheme inkpot
+endif
+
+set   ai
+set nocompatible
+set   expandtab
+set   history=100
+set   incsearch
+set   laststatus=2
+set   mouse=a
+set   mousehide
+set   shiftwidth=3
+set   showmatch
+set   statusline=%-f\ %m\ %y\ row=%l\ col=%c
+set   textwidth=79
+set nowrap
+
+syntax on
+set hlsearch
+
+filetype plugin indent on
+
+map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.5.py<CR>
+imap <C-K> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.5.py<CR>i
+
