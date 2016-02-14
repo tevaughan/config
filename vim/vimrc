@@ -1,25 +1,50 @@
 
+" "mode" must be "passive" to get automatic syntastic run-on-save for active
+" filetypes.
+let g:syntastic_mode_map = {
+         \"mode": "passive",
+         \"active_filetypes":
+         \   ["python", "c", "cpp", "ruby", "perl", "make", "vim"],
+         \"passive_filetypes": []
+         \}
+
+let g:syntastic_cpp_checkers = ['cppcheck']
+
+" Allow every syntax checker to run, and combine outputs into location list.
 let g:syntastic_aggregate_errors = 1
+
+" Allow diagnostics from syntastic to be stored in vim's location list, which
+" can be opened with ':lopen' and ':lclose'.
 let g:syntastic_always_populate_loc_list = 1
+
+" The YCM documentation says to do this; it looks suspiciously like the
+" syntastic option of similar name.
 let g:ycm_always_populate_loc_list = 1
+
+" Tell YCM not to ask before loading an extra_conf file.
 let g:ycm_confirm_extra_conf = 0
 
-if &term == "xterm" || &term == "rxvt"
+if &term == "xterm" || &term == "rxvt" || &term == "xterm-color"
    set t_Co=256
    colorscheme inkpot
 endif
 
 set   ai
+set   backspace=1
+set   bs=2
 set nocompatible
 set   expandtab
 set   history=100
 set   incsearch
 set   laststatus=2
 set   mouse=a
+set   mousefocus
 set   mousehide
+set norestorescreen
 set   shiftwidth=3
 set   showmatch
 set   statusline=%-f\ %m\ %y\ row=%l\ col=%c
+set   tabstop=8
 set   textwidth=79
 set nowrap
 
@@ -28,6 +53,18 @@ set hlsearch
 
 filetype plugin indent on
 
-map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format-3.5.py<CR>
-imap <C-K> <ESC>:pyf /usr/share/vim/addons/syntax/clang-format-3.5.py<CR>i
+command -nargs=* Cgrep grep <args> `find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp'`
+command -nargs=* Rgrep grep <args> `find . -iname '*.rb'`
+
+" For inserting a full-line comment in Forth.
+map e :exe "normal A" . repeat(' ', 71 - virtcol("$")) . ";" <Return>
+
+" For clang-format.
+map <C-K> :pyf ~/.vim/clang-format.py<CR>
+imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
+
+" This allows for packages locally installed (under ~/.vim/bundle) for pathogen
+" to be used. At the time of the writing of the present comment, the only
+" locally installed package is vim-glsl.
+"execute pathogen#infect()
 

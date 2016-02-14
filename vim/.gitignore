@@ -1,0 +1,8 @@
+autoload
+bundle
+doc
+menu.vim
+.netrwhist
+plugin
+spell
+syntax
