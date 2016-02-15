@@ -1,0 +1,4 @@
+# Force end-of-line normalization for all files that git determines to be text
+# files. The 'core.autocrlf' property determines what line endings will be used
+# in the working directory.
+* text=auto

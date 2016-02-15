@@ -1,0 +1,4 @@
+set match-hidden-files     on
+set show-all-if-ambiguous  on
+set visible-stats          on
+set bell-style             none

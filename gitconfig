@@ -1,0 +1,11 @@
+[http]
+	sslVerify = false
+[user]
+	name = Thomas E. Vaughan
+	email = tevaughan@gmail.com
+[credential]
+	helper = cache
+[push]
+	default = simple
+[core]
+	editor = vim
