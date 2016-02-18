@@ -1,4 +1,29 @@
 
+" Vundle configuration. Some lines should be commented out on a machine that I
+" manage as root, where I can just install the Debian package.
+set nocompatible                   " Never comment this out!
+"filetype off                       " . BEG COMMENTABLE SECTION.
+"set rtp+=~/.vim/bundle/Vundle.vim  " .
+"call vundle#begin()                " .
+"Plugin 'VundleVim/Vundle.vim'      " . (Add other plugins after this.)
+"Plugin 'Valloric/YouCompleteMe'    " .
+"Plugin 'scrooloose/syntastic'      " .
+"call vundle#end()                  " . END COMMENTABLE SECTION.
+filetype plugin indent on          " Never comment this out!
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append '!' to update or just do
+"                     :PluginUpdate
+" :PluginSearch foo - searches for foo; append '!' to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append '!' to
+"                     auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+"                        Begin Variables for Syntastic
+
 " "mode" must be "passive" to get automatic syntastic run-on-save for active
 " filetypes.
 let g:syntastic_mode_map = {
@@ -17,12 +42,25 @@ let g:syntastic_aggregate_errors = 1
 " can be opened with ':lopen' and ':lclose'.
 let g:syntastic_always_populate_loc_list = 1
 
+"                         End Variables for Syntastic
+" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+" vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+"                      Begin Variables for YouCompleteMe
+
+" For debugging YCM.
+"let g:ycm_server_keep_logfiles = 1
+"let g:ycm_server_log_level = 'debug'
+
 " The YCM documentation says to do this; it looks suspiciously like the
 " syntastic option of similar name.
 let g:ycm_always_populate_loc_list = 1
 
 " Tell YCM not to ask before loading an extra_conf file.
 let g:ycm_confirm_extra_conf = 0
+
+"                       End Variables for YouCompleteMe
+" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 if &term == "xterm" || &term == "rxvt" || &term == "xterm-color"
    set t_Co=256
@@ -32,7 +70,6 @@ endif
 set   ai
 set   backspace=1
 set   bs=2
-set nocompatible
 set   expandtab
 set   history=100
 set   incsearch
@@ -51,9 +88,8 @@ set nowrap
 syntax on
 set hlsearch
 
-filetype plugin indent on
-
 command -nargs=* Cgrep grep <args> `find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp'`
+command -nargs=* Hgrep grep <args> `find . -iname '*.h' -o -iname '*.hpp'`
 command -nargs=* Rgrep grep <args> `find . -iname '*.rb'`
 
 " For inserting a full-line comment in Forth.
@@ -64,7 +100,6 @@ map <C-K> :pyf ~/.vim/clang-format.py<CR>
 imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 
 " This allows for packages locally installed (under ~/.vim/bundle) for pathogen
-" to be used. At the time of the writing of the present comment, the only
-" locally installed package is vim-glsl.
+" to be used.
 "execute pathogen#infect()
 
