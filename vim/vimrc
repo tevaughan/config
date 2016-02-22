@@ -54,6 +54,7 @@ set hlsearch
 filetype plugin indent on
 
 command -nargs=* Cgrep grep <args> `find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp'`
+command -nargs=* Hgrep grep <args> `find . -iname '*.h' -o -iname '*.hpp'`
 command -nargs=* Rgrep grep <args> `find . -iname '*.rb'`
 
 " For inserting a full-line comment in Forth.
