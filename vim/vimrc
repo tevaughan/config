@@ -1,25 +1,8 @@
 
-" Vundle configuration. Some lines should be commented out on a machine that I
-" manage as root, where I can just install the Debian package.
-set nocompatible                   " Never comment this out!
-"filetype off                       " . BEG COMMENTABLE SECTION.
-"set rtp+=~/.vim/bundle/Vundle.vim  " .
-"call vundle#begin()                " .
-"Plugin 'VundleVim/Vundle.vim'      " . (Add other plugins after this.)
-"Plugin 'Valloric/YouCompleteMe'    " .
-"Plugin 'scrooloose/syntastic'      " .
-"call vundle#end()                  " . END COMMENTABLE SECTION.
-filetype plugin indent on          " Never comment this out!
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append '!' to update or just do
-"                     :PluginUpdate
-" :PluginSearch foo - searches for foo; append '!' to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append '!' to
-"                     auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Vundle configuration.
+set nocompatible           " Never comment this out!
+runtime vimrc_vundle       " Contains lines that may be commented out.
+filetype plugin indent on  " Never comment this out!
 
 " vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 "                        Begin Variables for Syntastic
