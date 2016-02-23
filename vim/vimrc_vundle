@@ -4,13 +4,13 @@
 " its own installation of the plugin, then the Plugin line should be commented
 " out. If no plugin should be enabled explicitly via vundle, then comment out
 " the entire block.
-filetype off                       " . BEG COMMENTABLE SECTION.
-set rtp+=~/.vim/bundle/Vundle.vim  " .
-call vundle#begin()                " .
-Plugin 'VundleVim/Vundle.vim'      " . (Add other plugins after this.)
-Plugin 'Valloric/YouCompleteMe'    " .
-Plugin 'scrooloose/syntastic'      " .
-call vundle#end()                  " . END COMMENTABLE SECTION.
+"filetype off                       " . BEG COMMENTABLE SECTION.
+"set rtp+=~/.vim/bundle/Vundle.vim  " .
+"call vundle#begin()                " .
+"Plugin 'VundleVim/Vundle.vim'      " . (Add other plugins after this.)
+"Plugin 'Valloric/YouCompleteMe'    " .
+"Plugin 'scrooloose/syntastic'      " .
+"call vundle#end()                  " . END COMMENTABLE SECTION.
 
 " Brief help
 " :PluginList       - lists configured plugins
