@@ -1,0 +1,56 @@
+
+set certificate_file=~/.mutt/certificates
+set confirmappend=no
+set copy=no  # Don't save copy of outbound message.
+set record=""  # file into which outbound message will be appended
+set folder="imaps://imap.gmail.com/"  # where to save mail
+set from='tevaughan@gmail.com'
+set include=yes
+set move=no  # Don't move read messages from spool to mbox.
+set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+set realname='Thomas E. Vaughan'
+set ssl_force_tls=yes
+set ssl_starttls=yes
+
+set spoolfile="imaps://imap.gmail.com/INBOX"
+
+set history=50
+set history_file=~/.mutt/history
+
+set signature="~/.mutt/signature"
+
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+
+set imap_user = 'tevaughan@gmail.com'
+#set imap_pass = 'PASSWORD'
+
+# Maximum seconds between polling open IMAP connections to prevent server from
+# closing.
+set imap_keepalive=900
+
+# Keep a cache of headers for faster loading.
+set header_cache=~/.mutt/cache/headers
+set message_cachedir = "~/.mutt/cache/bodies"
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+mailboxes imaps://tevaughan@imap.gmail.com /var/mail/tevaugha
+
+my_hdr X-Operating-System: `uname -a`
+
+set smtp_url = 'smtps://tevaughan@smtp.gmail.com'
+#set smtp_url = 'smtps://tevaughan@gmail.com:PASSWORD@smtp.gmail.com:465/'
+
+color indicator blue white
+bind editor <space> noop  # Allow space in name of IMAP folder.
+
+macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
