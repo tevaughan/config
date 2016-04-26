@@ -1,3 +1,3 @@
 
-command -nargs=* Rgrep grep <args> `find . -iname '*.rb'`
+command -buffer -nargs=* Rgrep grep <args> `find . -iname '*.rb'`
 
