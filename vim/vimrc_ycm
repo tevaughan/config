@@ -1,0 +1,14 @@
+
+" Variables for YouCompleteMe
+
+" For debugging YCM.
+"let g:ycm_server_keep_logfiles = 1
+"let g:ycm_server_log_level = 'debug'
+
+" The YCM documentation says to do this; it looks suspiciously like the
+" syntastic option of similar name.
+let g:ycm_always_populate_loc_list = 1
+
+" Tell YCM not to ask before loading an extra_conf file.
+let g:ycm_confirm_extra_conf = 0
+
