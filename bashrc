@@ -72,8 +72,8 @@ if [ -r "$environment_conf" ]; then
 fi
 
 # Aliases.
-alias ll='ls -Al'
-alias la='ls -As'
+alias ll='ls -Aho'
+alias la='ls -Ahs'
 aliases_conf=~/.config/aliases
 if [ -r "$aliases_conf" ]; then
   echo -n "loading aliases from '$aliases_conf' ... "
