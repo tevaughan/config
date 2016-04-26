@@ -71,22 +71,6 @@ set nowrap
 syntax on
 set hlsearch
 
-command -nargs=* Cgrep grep <args> `find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp'`
-command -nargs=* Hgrep grep <args> `find . -iname '*.h' -o -iname '*.hpp'`
-command -nargs=* Rgrep grep <args> `find . -iname '*.rb'`
-
-" For some older versions of vim that need correcting, override the erroneous
-" recognition of a '*.md' file as being of type 'modula-2'. It should rather be
-" of type 'markdown'.
-autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-
-" For inserting a full-line comment in Forth.
-map e :exe "normal A" . repeat(' ', 71 - virtcol("$")) . ";" <Return>
-
-" For clang-format.
-map <C-K> :pyf ~/.vim/clang-format.py<CR>
-imap <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
-
 " This allows for packages locally installed (under ~/.vim/bundle) for pathogen
 " to be used.
 "execute pathogen#infect()
