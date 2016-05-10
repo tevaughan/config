@@ -72,8 +72,8 @@ if [ -r "$environment_conf" ]; then
 fi
 
 # Aliases.
-alias ll='ls -Al'
-alias la='ls -As'
+alias ll='ls -Aho'
+alias la='ls -Ahs'
 aliases_conf=~/.config/aliases
 if [ -r "$aliases_conf" ]; then
   echo -n "loading aliases from '$aliases_conf' ... "
@@ -94,18 +94,18 @@ fi
 
 my_prompt() {
    if [ $? = 0 ]; then
-      warn=yes
-   else
       warn=no
+   else
+      warn=yes
    fi
    my_pwd=`echo $PWD | sed 's,^/home/tevaugha,~,'`
    my_pwd_long=`echo $my_pwd | sed 's,^\([^/]*/[^/]*/\).*\(/[^/]*/[^/]*\),\1...\2,'`
    my_pwd_shrt=`echo $my_pwd | sed 's,^\([^/]*/\).*\(/[^/]*/[^/]*\),\1...\2,'`
    if [ "$color_prompt" = yes ]; then
       if [ "$warn" = yes ]; then
-         PS1='\[$(tput setab 7)$(tput setaf 4)\] \u@\h \[$(tput sgr0)\] ${my_pwd_long} \$ '
-      else
          PS1='\[$(tput setab 1)$(tput setaf 3)\] \u@\h \[$(tput sgr0)\] ${my_pwd_long} \$ '
+      else
+         PS1='\[$(tput setab 7)$(tput setaf 4)\] \u@\h \[$(tput sgr0)\] ${my_pwd_long} \$ '
       fi
    else
       if [ "$warn" = yes ]; then
