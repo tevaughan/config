@@ -2,6 +2,9 @@
 Fig.latexfonts: true
 Fig.specialtext: true
 
+! Cause the selection to be copied to the clipboard.
+XTerm*selectToClipboard: true
+
 XTerm*SimpleMenu*Cursor: left_ptr
 
 ! xterm can switch at runtime between bitmap (default) and TrueType fonts.
@@ -9,6 +12,8 @@ XTerm*SimpleMenu*Cursor: left_ptr
 ! originally given with a size that makes the two types of fonts different
 ! sizes.  Uncomment this line to use the same size as "fixed".
 XTerm*faceSize: 9
+
+XTerm*faceName: liberation
 
 ! Here is a pattern that is useful for double-clicking on a URL:
 XTerm*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
