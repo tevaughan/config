@@ -1,5 +1,18 @@
 
-" Variables for Syntastic
+" Settings for Syntastic
+" See <https://github.com/scrooloose/syntastic#settings>.
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Allow diagnostics from syntastic to be stored in vim's location list, which
+" can be opened with ':lopen' and closed with ':lclose'.
+let g:syntastic_always_populate_loc_list = 1
+
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq   = 0
 
 " "mode" must be "passive" to get automatic syntastic run-on-save for active
 " filetypes.
@@ -14,8 +27,4 @@ let g:syntastic_cpp_checkers = ['cppcheck']
 
 " Allow every syntax checker to run, and combine outputs into location list.
 let g:syntastic_aggregate_errors = 1
-
-" Allow diagnostics from syntastic to be stored in vim's location list, which
-" can be opened with ':lopen' and ':lclose'.
-let g:syntastic_always_populate_loc_list = 1
 
