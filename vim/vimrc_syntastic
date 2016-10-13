@@ -23,7 +23,8 @@ let g:syntastic_mode_map = {
          \"passive_filetypes": []
          \}
 
-let g:syntastic_cpp_checkers = ['cppcheck']
+"let g:syntastic_cpp_checkers = ['cppcheck']
+let g:syntastic_cpp_checkers = []
 
 " Allow every syntax checker to run, and combine outputs into location list.
 let g:syntastic_aggregate_errors = 1
