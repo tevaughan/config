@@ -10,6 +10,6 @@ map <buffer> <C-K> :py3f ~/.vim/clang-format.py<CR>
 " non-Latin symbol, such as μ via <C-K> m *.
 "imap <buffer> <C-K> <ESC>:pyf ~/.vim/clang-format.py<CR>i
 
-command! -buffer -nargs=* Cgrep grep <args> `find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp'`
-command! -buffer -nargs=* Hgrep grep <args> `find . -iname '*.h' -o -iname '*.hpp'`
+setlocal grepprg="pcregrep -n $* /dev/null"
+command! -buffer -nargs=1 Cgrep grep <q-args> `find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp'`
 

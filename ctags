@@ -1,11 +1,11 @@
 
 --langdef=forth
 
---langmap=forth:.4th.fs.br.4TH.FS.BR
+--langmap=forth:.4th.fs.4TH.FS
 
 --regex-forth=/(CONSTANT|constant|UCODE)[ \t]+([^ \t]+)/\2/d,definition/
 
 --regex-forth=/^[ \t]*2?(VARIABLE|variable)[ \t]+([^ \t]+)/\2/v,variable/
 
---regex-forth=/^: ([^ \t]+)[ \t]*/\1/f,function/
+--regex-forth=/^[ \t]*:[ \t]+([^ \t]+)[ \t]*/\1/f,function/
 
