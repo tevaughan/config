@@ -1,5 +1,6 @@
 autoload
 bundle
+colors
 doc
 .netrwhist
 plugin
