@@ -11,9 +11,10 @@ esac
 # I require that vim be installed!
 export EDITOR=vim
 
-# Make sure that ${HOME}/bin is prepended to PATH.
-if ! echo ${PATH} | grep "${HOME}/bin" > /dev/null; then
-   export PATH=${HOME}/bin:${PATH}
+# Make sure that ${MYBIN} is prepended to PATH.
+MYBIN=${HOME}/Desktop/bin
+if ! echo ${PATH} | grep "${MYBIN}" > /dev/null; then
+   export PATH=${MYBIN}:${PATH}
 fi
 
 # Put into history neither duplicate lines nor any line starting with space.
