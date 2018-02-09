@@ -1,0 +1,125 @@
+#!/bin/bash
+#
+# vim: set tw=79 sw=2:
+#
+# Script to enable different wallpapers on each workspace and monitor with
+# Openbox.
+#
+# Written  by damo              <damo@bunsenlabs.org>   2015 Nov.
+# Modified by Thomas E. Vaughan <tevaughan@gmail.com>   2018 Feb.
+#
+# When first run, the script writes a configuration file template. The user can
+# then edit this and add the image filepaths.
+#
+# To run while logged in, add "wallpapersd &" to your autostart
+#
+# REQUIRES: feh
+#
+# SEE ALSO:
+#   $HOME/.config/openbox/autostart       (which launches wallpapersd)
+#   $HOME/.config/openbox/wallpapers.cfg  (which wallpapersd reads or writes)
+###############################################################################
+
+WALLS_FILE="$HOME/.config/openbox/wallpapers.cfg"
+# edit this, or wallpapers.cfg, to use a different feh command
+FEH_CMD="feh --bg-center"
+
+TXT="
+##############################################################################
+#
+# Add filepath for each image to be set as background on workspace.
+# You can have an image set for each monitor.
+#
+# Commands should be in the form:
+#
+# feh --bg-center 'path/to/image1(monitor 1)' 'path/to/image2(monitor 2)' etc
+#
+# See the description of '--bg-*' options in the man page for feh.
+#
+# Note that each of --bg-tile and --bg-center might be considered as an option
+# for a multi-monitor setup with a single background spread across all
+# monitors, but the image must be big enough to cover them.
+#
+##############################################################################"
+
+USAGE="USAGE:
+
+wallpapersd &   Runs the 'daemon' to set per-workspace backgrounds.
+First run will open wallpapers.cfg, which has instructions
+and feh settings.
+
+--config        Open wallpapers.cfg for editing
+
+-h,--help       This help
+"
+
+if ! hash feh; then
+  echo "feh is required to set the backgrounds."
+  echo "Install the feh package then re-run the script."
+  exit 1
+fi
+
+case "$1" in
+  -h|--help ) echo -e "\n$USAGE"
+    exit
+    ;;
+  --config  ) if [[ -f $WALLS_FILE ]] &>/dev/null;then
+    echo -e "\n  Open wallpapers.cfg for editing?"
+    echo -e " (wallpapersd needs restart afterward) y|N"
+    read -srn1 RET
+    case $RET in
+      n|N ) exit;;
+      y|Y ) xdg-open "$WALLS_FILE" &
+        # open cfg file for editing
+        killall wallpapersd
+        exit
+        ;;
+      *   ) exit
+        ;;
+    esac
+  else
+    echo -e " '$WALLS_FILE' not found"
+    echo -e " Run wallpapersd first? Y|n?"
+    read -srn1 ANS
+    case $ANS in
+      n|N ) exit
+        ;;
+      *   ) wallpapersd 2>/dev/null &
+        # run app to generate cfg template
+        xdg-open "$WALLS_FILE" &
+        # open cfg file for editing
+        ;;
+    esac
+  fi
+  ;;
+esac
+
+if [[ ! -f $WALLS_FILE ]]; then
+  echo -e "$TXT\n" > "$WALLS_FILE"
+  NUM_DESKTOPS=$(xprop -root _NET_NUMBER_OF_DESKTOPS)
+  NUM_DESKTOPS=${NUM_DESKTOPS:(-1)}
+  for (( i=0; i < $NUM_DESKTOPS; i++ )); do
+    echo "[DESKTOP_$i] $FEH_CMD " >> "$WALLS_FILE"
+  done
+  # open cfg file for editing. Script must be restarted afterwards.
+  xdg-open "$WALLS_FILE"
+  exit
+else
+  xev -root -event property |  # <-- this is the watching process
+    while IFS=$',' read -a W; do
+      if [[ "${W[0]}" =~ '_NET_CURRENT_DESKTOP' ]]; then
+        CURR_DESKTOP=$(xprop -root _NET_CURRENT_DESKTOP)
+        CURR_DESKTOP=${CURR_DESKTOP:(-1)}
+        while read DTOP FEH OPT FILE; do
+          VAL="[DESKTOP_$CURR_DESKTOP]"
+          if [[ "$DTOP" = "$VAL" ]]; then
+            FILE=$(eval echo $FILE)  # Remove any quote marks.
+            file=$(find "$HOME" /usr/share/wallpapers -name "$FILE" | head -1)
+            eval "$FEH $OPT '$file'"
+          fi
+        done < "$WALLS_FILE"
+      fi
+      W=()
+    done  
+fi
+

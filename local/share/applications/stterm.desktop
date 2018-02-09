@@ -1,0 +1,14 @@
+
+[Desktop Entry]
+Name=stterm
+#GenericName=Terminal
+Comment=minimal terminal emulator for the X window system
+Exec=stterm -f 'liberation mono-11.5' screen -h 8192
+Terminal=false
+Type=Application
+#Encoding=UTF-8
+Icon=terminal
+Categories=System;TerminalEmulator;
+Keywords=shell;prompt;command;commandline;cmd;
+X-Desktop-File-Install-Version=0.23
+

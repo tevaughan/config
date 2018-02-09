@@ -1,0 +1,18 @@
+
+obconfdir=$HOME/.config/openbox
+
+xscreensaver &
+${obconfdir}/wallpapersd &
+tint2 &
+nm-applet &
+
+bbpager -c ${obconfdir}/bbpager.rc -w &
+sleep 1  # Make sure that bbpager comes up before dockapps.
+
+${obconfdir}/launch-dockapps
+
+# Initialize background image on Screen 0 (and, accidentally on Screen 1).
+wmctrl -s 1
+sleep 1
+wmctrl -s 0
+

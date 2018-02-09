@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Line up dockapps in sequence.
+dockapps=(\
+  "wmmixer -w"\
+  "wmacpi"\
+  "wmnd"\
+  "wmmon -l -i"\
+  "wmmon -l -s"\
+  "wmmon -l"\
+  "wmtop -U -r 2000"\
+  "wmforkplop"\
+  "wmhdplop"\
+)
+max_off=$((${#dockapps}-1))
+for i in $(seq 0 $max_off); do
+  ${dockapps[$i]} &
+  sleep 1
+done
+
