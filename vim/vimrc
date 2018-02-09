@@ -7,7 +7,7 @@ filetype plugin indent on  " Never comment this out!
 runtime vimrc_syntastic
 runtime vimrc_ycm
 
-if &term == "xterm" || &term == "rxvt" || &term == "xterm-color"
+if &term == "xterm" || &term == "stterm-256color" || &term == "screen"
    set t_Co=256
    colorscheme inkpot
 endif

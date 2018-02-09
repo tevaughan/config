@@ -30,7 +30,7 @@ shopt -s checkwinsize
 
 # Check for terminal's support of color.
 case "$TERM" in
-   xterm-color|*-256color)
+   xterm-color|*-256color|screen)
       color_prompt=yes
       ;;
    *)
@@ -116,7 +116,7 @@ my_prompt() {
       fi
    fi
    case "$TERM" in
-      xterm*|rxvt*)
+      xterm*|rxvt*|screen)
          # Set title as my_pwd_shrt only.
          PS1="\[\e]0;${my_pwd_shrt}\a\]$PS1"
          ;;
@@ -127,7 +127,7 @@ my_prompt() {
 
 export PROMPT_COMMAND=my_prompt
 case "$TERM" in
-   xterm*|rxvt*)
+   xterm*|rxvt*|screen)
       # Show the currently running command in the terminal title:
       # https://mg.pov.lt/blog/bash-prompt.html
       # http://www.davidpashley.com/articles/xterm-titles-with-bash.html

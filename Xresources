@@ -11,9 +11,9 @@ XTerm*SimpleMenu*Cursor: left_ptr
 ! The "faceSize" resource controls the size of the latter.  However, it was
 ! originally given with a size that makes the two types of fonts different
 ! sizes.  Uncomment this line to use the same size as "fixed".
-XTerm*faceSize: 9
+!XTerm*faceSize: 9
 
-XTerm*faceName: liberation
+!XTerm*faceName: liberation
 
 ! Here is a pattern that is useful for double-clicking on a URL:
 XTerm*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
@@ -93,9 +93,9 @@ XTerm*pointerShape:           left_ptr
 XTerm*VT100.alternateScroll:  true
 XTerm*VT100.cursorColor:      cyan
 XTerm*VT100.dynamicColors:    on
-XTerm*VT100.faceName:         Liberation Mono
+!XTerm*VT100.faceName:         Liberation Mono
 XTerm*VT100*geometry:         84x25
-XTerm*VT100*renderFont:       default
+!XTerm*VT100*renderFont:       default
 XTerm*VT100.saveLines:        4096
 XTerm*VT100.scrollBar:        true
 XTerm*VT100.scrollbar.translations:#override \n\
