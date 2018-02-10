@@ -136,7 +136,10 @@ function file_image_matches()
     /usr/share/backgrounds/
   )
   for i in ${!dirs[*]}; do
-    find "${dirs[$i]}" -name "$file"
+    dir="${dirs[$i]}"
+    if [ -d "$dir" ]; then
+      find "$dir" -name "$file"
+    fi
   done
 }
 
