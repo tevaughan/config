@@ -99,7 +99,8 @@ my_prompt() {
    else
       warn=yes
    fi
-   my_pwd=`echo $PWD | sed 's,^/home/tevaugha,~,'`
+   uname=$(whoami)
+   my_pwd=`echo $PWD | sed "s,^/home/$uname,~,"`
    my_pwd_long=`echo $my_pwd | sed 's,^\([^/]*/[^/]*/\).*\(/[^/]*/[^/]*\),\1...\2,'`
    my_pwd_shrt=`echo $my_pwd | sed 's,^\([^/]*/\).*\(/[^/]*/[^/]*\),\1...\2,'`
    if [ "$color_prompt" = yes ]; then
