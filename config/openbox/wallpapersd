@@ -11,9 +11,31 @@
 # When first run, the script writes a configuration file template. The user can
 # then edit this and add the image filepaths.
 #
-# To run while logged in, add "wallpapersd &" to your autostart
+# To run while logged in, add "wallpapersd &" to your autostart.
 #
 # REQUIRES: feh
+#
+# Execute
+#
+#    apt-file -x search '\.(jpg|png)$' | egrep\
+#    '/usr/share/(backgrounds|wallpapers)' | awk -F: '{print $1}' | uniq
+#
+# to generate the following list of suggested Debian packages.
+#
+# SUGGESTED DEBIAN PACKAGES (FOR IMAGES):
+#   albatross-gtk-theme
+#   arctica-greeter
+#   bluebird-gtk-theme
+#   breeze
+#   gnome-backgrounds
+#   greybird-gtk-theme
+#   mate-backgrounds
+#   mate-screensaver-common
+#   neurodebian-desktop
+#   plasma-workspace-wallpapers
+#   shiki-colors
+#   ukui-screensaver-common
+#   xfdesktop4-data
 #
 # SEE ALSO:
 #   $HOME/.config/openbox/autostart       (which launches wallpapersd)
@@ -21,24 +43,27 @@
 ###############################################################################
 
 WALLS_FILE="$HOME/.config/openbox/wallpapers.cfg"
-# edit this, or wallpapers.cfg, to use a different feh command
-FEH_CMD="feh --bg-center"
+
+# Edit this, or wallpapers.cfg, to use a different feh command.
+FEH_CMD="feh --bg-tile"
 
 TXT="
 ##############################################################################
 #
 # Add filepath for each image to be set as background on workspace.
-# You can have an image set for each monitor.
 #
 # Commands should be in the form:
 #
-# feh --bg-center 'path/to/image1(monitor 1)' 'path/to/image2(monitor 2)' etc
+# feh --bg-tile 'image-basename'
+#
+# where the basename (without directory path) is used.  A set of standard image
+# directories is searched for the image file.
 #
 # See the description of '--bg-*' options in the man page for feh.
 #
-# Note that each of --bg-tile and --bg-center might be considered as an option
-# for a multi-monitor setup with a single background spread across all
-# monitors, but the image must be big enough to cover them.
+# Note that --bg-tile is an option for a multi-monitor setup with a single
+# background spread across all monitors, but the image must be big enough to
+# cover them.
 #
 ##############################################################################"
 
@@ -94,6 +119,36 @@ case "$1" in
   ;;
 esac
 
+function file_image_matches()
+{
+  file=$1
+  if [ -r "$file" ] && ! [ -d "$file" ]; then
+    # file contains absolute pathname.
+    echo $file
+    return
+  fi
+  # Search for file in standard places.  Terminal slash is required in case
+  # the listed place be a logical link to the real place.
+  dirs=(
+    "$HOME/Pictures/"
+    "$HOME/.config/openbox/"
+    /usr/share/wallpapers/
+    /usr/share/backgrounds/
+  )
+  for i in ${!dirs[*]}; do
+    find "${dirs[$i]}" -name "$file"
+  done
+}
+
+function screen_size()
+{
+  xrandr\
+    | grep '^Screen 0: minimum'\
+    | awk -F, '{print $2}'\
+    | sed 's/ current //'\
+    | sed 's/ x /x/'
+}
+
 if [[ ! -f $WALLS_FILE ]]; then
   echo -e "$TXT\n" > "$WALLS_FILE"
   NUM_DESKTOPS=$(xprop -root _NET_NUMBER_OF_DESKTOPS)
@@ -101,7 +156,7 @@ if [[ ! -f $WALLS_FILE ]]; then
   for (( i=0; i < $NUM_DESKTOPS; i++ )); do
     echo "[DESKTOP_$i] $FEH_CMD " >> "$WALLS_FILE"
   done
-  # open cfg file for editing. Script must be restarted afterwards.
+  # Open cfg file for editing.  Script must be restarted afterwards.
   xdg-open "$WALLS_FILE"
   exit
 else
@@ -114,8 +169,15 @@ else
           VAL="[DESKTOP_$CURR_DESKTOP]"
           if [[ "$DTOP" = "$VAL" ]]; then
             FILE=$(eval echo $FILE)  # Remove any quote marks.
-            file=$(find "$HOME" /usr/share/wallpapers -name "$FILE" | head -1)
-            eval "$FEH $OPT '$file'"
+            file=$(file_image_matches "$FILE" | head -1)
+            resized="/tmp/resized-$FILE"
+            if ! [ -r "$resized" ]; then
+              # The terminal '^' on the size causes the aspect ration to be
+              # preserved while the image is grown just enough completely to
+              # fill the requested size.
+              convert "$file" -resize "$(screen_size)^" $resized
+            fi
+            eval "$FEH $OPT '$resized'"
           fi
         done < "$WALLS_FILE"
       fi
