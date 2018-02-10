@@ -1,15 +1,24 @@
 
+# Directory where the present file and other files in the openbox configuration
+# are stored.
 obconfdir=$HOME/.config/openbox
 
+# Launch the screen saver.
 xscreensaver &
+
+# Start the process that listens for desktop-change events.  When the desktop
+# changes, it loads the appropriate background image.
 ${obconfdir}/wallpapersd &
+
+# Tint2 is a panel that has launchers, a pager, a tray, and a clock.
 tint2 &
+
+# Start tray applets.
 nm-applet &
+pnmixer &
 
-bbpager -c ${obconfdir}/bbpager.rc -w &
-sleep 1  # Make sure that bbpager comes up before dockapps.
-
-${obconfdir}/launch-dockapps
+# Launch dock applets.
+${obconfdir}/launch-dockapps "$obconfdir" &
 
 # Initialize background image on Screen 0 (and, accidentally on Screen 1).
 wmctrl -s 1

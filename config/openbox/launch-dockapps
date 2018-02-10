@@ -1,8 +1,10 @@
 #!/bin/bash
 
+obconfdir=$1
+
 # Line up dockapps in sequence.
 dockapps=(\
-  "wmmixer -w"\
+  "bbpager -c ${obconfdir}/bbpager.rc -w"\
   "wmacpi"\
   "wmnd"\
   "wmmon -l -i"\

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+apt-get install\
+   bbpager\
+   feh\
+   gnome-backgrounds\
+   imagemagick\
+   mate-backgrounds\
+   mate-screensaver-common\
+   obconf\
+   obmenu\
+   openbox\
+   pnmixer\
+   tint2\
+   wmacpi\
+   wmctrl\
+   wmforkplop\
+   wmhdplop\
+   wmmon\
+   wmnd\
+   wmtop\
+   x11-utils\
+   xdg-utils\
+   xscreensaver
+

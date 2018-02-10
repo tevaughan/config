@@ -13,29 +13,12 @@
 #
 # To run while logged in, add "wallpapersd &" to your autostart.
 #
-# REQUIRES: feh
-#
-# Execute
-#
-#    apt-file -x search '\.(jpg|png)$' | egrep\
-#    '/usr/share/(backgrounds|wallpapers)' | awk -F: '{print $1}' | uniq
-#
-# to generate the following list of suggested Debian packages.
+# REQUIRES: feh, imagemagick
 #
 # SUGGESTED DEBIAN PACKAGES (FOR IMAGES):
-#   albatross-gtk-theme
-#   arctica-greeter
-#   bluebird-gtk-theme
-#   breeze
 #   gnome-backgrounds
-#   greybird-gtk-theme
 #   mate-backgrounds
 #   mate-screensaver-common
-#   neurodebian-desktop
-#   plasma-workspace-wallpapers
-#   shiki-colors
-#   ukui-screensaver-common
-#   xfdesktop4-data
 #
 # SEE ALSO:
 #   $HOME/.config/openbox/autostart       (which launches wallpapersd)
@@ -119,6 +102,15 @@ case "$1" in
   ;;
 esac
 
+# Look for wallpapers in standard places.  Terminal slash is required in case
+# the listed place be a logical link to the real place.
+img_dirs=(
+  "$HOME/Pictures/"
+  "$HOME/.config/openbox/"
+  /usr/share/wallpapers/
+  /usr/share/backgrounds/
+)
+
 function file_image_matches()
 {
   file=$1
@@ -127,20 +119,26 @@ function file_image_matches()
     echo $file
     return
   fi
-  # Search for file in standard places.  Terminal slash is required in case
-  # the listed place be a logical link to the real place.
-  dirs=(
-    "$HOME/Pictures/"
-    "$HOME/.config/openbox/"
-    /usr/share/wallpapers/
-    /usr/share/backgrounds/
-  )
-  for i in ${!dirs[*]}; do
-    dir="${dirs[$i]}"
+  for i in ${!img_dirs[*]}; do
+    dir="${img_dirs[$i]}"
     if [ -d "$dir" ]; then
       find "$dir" -name "$file"
     fi
   done
+}
+
+function image_at_index()
+{
+  image_index=$1
+  for i in ${!img_dirs[*]}; do
+    dir="${img_dirs[$i]}"
+    if [ -d "$dir" ]; then
+      find "$dir" -iname '*.jpg'
+      find "$dir" -iname '*.png'
+    fi
+  done\
+    | head -n $image_index\
+    | tail -n -1
 }
 
 function screen_size()
@@ -163,6 +161,7 @@ if [[ ! -f $WALLS_FILE ]]; then
   xdg-open "$WALLS_FILE"
   exit
 else
+  image_index=1
   xev -root -event property |  # <-- this is the watching process
     while IFS=$',' read -a W; do
       if [[ "${W[0]}" =~ '_NET_CURRENT_DESKTOP' ]]; then
@@ -172,15 +171,36 @@ else
           VAL="[DESKTOP_$CURR_DESKTOP]"
           if [[ "$DTOP" = "$VAL" ]]; then
             FILE=$(eval echo $FILE)  # Remove any quote marks.
-            file=$(file_image_matches "$FILE" | head -1)
             resized="/tmp/resized-$FILE"
             if ! [ -r "$resized" ]; then
-              # The terminal '^' on the size causes the aspect ration to be
-              # preserved while the image is grown just enough completely to
-              # fill the requested size.
-              convert "$file" -resize "$(screen_size)^" $resized
+              file=$(file_image_matches "$FILE" | head -n -1)
+              # By checking only here (after the 'if' above) for the existence
+              # of file, and by using the name in the config file in the
+              # resized variable, even though we might use a different file, we
+              # can keep from incrementing through the files in the path every
+              # time the desktop changes.
+              if ! [ -r "$file" ]; then
+                echo "file '$file' to resize does not exist"
+                # No image matching the name in 'wallpapers.cfg' found.  Pick a
+                # sequential image from the path.
+                file=$(image_at_index $image_index)
+                echo "'image_at_index $image_index' returned '$file'"
+                ((image_index++))
+              fi
+              if [ -r "$file" ]; then
+                # The terminal '^' on the size causes the aspect ratio to be
+                # preserved while the image is grown just enough completely to
+                # fill the requested size.
+                convert "$file" -resize "$(screen_size)^" $resized
+              else
+                echo "no readable file '$file' exists to resize"
+              fi
             fi
-            eval "$FEH $OPT '$resized'"
+            if [ -r "$resized" ]; then
+              eval "$FEH $OPT '$resized'"
+            else
+              echo "no readable resized file '$resized'"
+            fi
           fi
         done < "$WALLS_FILE"
       fi
