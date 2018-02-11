@@ -24,7 +24,7 @@
 		<separator/>
 		<!-- This requires the presence of the 'openbox-menu' package to work -->
 		<menu id="/Debian"/>
-		<menu execute="/usr/bin/obmenu" id="applications-menu" label="Applications"/>
+		<menu execute="/usr/bin/openbox-menu" id="applications-menu" label="Applications"/>
 		<separator/>
 		<item label="ObMenu">
 			<action name="Execute">
