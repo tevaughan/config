@@ -26,6 +26,7 @@
 ###############################################################################
 
 WALLS_FILE="$HOME/.config/openbox/wallpapers.cfg"
+LOG_FILE="/tmp/$(whoami)-wallpapersd.log"
 
 # Edit this, or wallpapers.cfg, to use a different feh command.
 FEH_CMD="feh --bg-tile"
@@ -116,13 +117,15 @@ function file_image_matches()
   file=$1
   if [ -r "$file" ] && ! [ -d "$file" ]; then
     # file contains absolute pathname.
-    echo $file
+    echo "file_image_matches: absolute path in wallpapers.cfg" >> $LOG_FILE
+    echo $file | tee -a $LOG_FILE
     return
   fi
   for i in ${!img_dirs[*]}; do
     dir="${img_dirs[$i]}"
     if [ -d "$dir" ]; then
-      find "$dir" -name "$file"
+      echo "file_image_matches: under '$dir'" >> $LOG_FILE
+      find "$dir" -name "$file" | tee -a $LOG_FILE
     fi
   done
 }
@@ -130,15 +133,17 @@ function file_image_matches()
 function image_at_index()
 {
   image_index=$1
+  echo "image_at_index: image_index=$image_index" >> $LOG_FILE
   for i in ${!img_dirs[*]}; do
     dir="${img_dirs[$i]}"
     if [ -d "$dir" ]; then
-      find "$dir" -iname '*.jpg'
-      find "$dir" -iname '*.png'
+      echo "image_at_index: listing files under '$dir'" >> $LOG_FILE
+      find "$dir" -iname '*.jpg' | tee -a $LOG_FILE
+      find "$dir" -iname '*.png' | tee -a $LOG_FILE
     fi
   done\
     | head -n $image_index\
-    | tail -n -1
+    | tail -n 1 | tee -a $LOG_FILE
 }
 
 function screen_size()
@@ -162,6 +167,7 @@ if [[ ! -f $WALLS_FILE ]]; then
   exit
 else
   image_index=1
+  date > $LOG_FILE
   xev -root -event property |  # <-- this is the watching process
     while IFS=$',' read -a W; do
       if [[ "${W[0]}" =~ '_NET_CURRENT_DESKTOP' ]]; then
@@ -169,31 +175,35 @@ else
         CURR_DESKTOP=${CURR_DESKTOP:(-1)}
         while read DTOP FEH OPT FILE; do
           VAL="[DESKTOP_$CURR_DESKTOP]"
+          echo $VAL >> $LOG_FILE
           if [[ "$DTOP" = "$VAL" ]]; then
             FILE=$(eval echo $FILE)  # Remove any quote marks.
             resized="/tmp/resized-$FILE"
+            echo "FILE='$FILE' resized='$resized'" >> $LOG_FILE
             if ! [ -r "$resized" ]; then
-              file=$(file_image_matches "$FILE" | head -n -1)
+              file=$(file_image_matches "$FILE" | head -n 1)
+              echo "file='$file'" >> $LOG_FILE
               # By checking only here (after the 'if' above) for the existence
               # of file, and by using the name in the config file in the
               # resized variable, even though we might use a different file, we
               # can keep from incrementing through the files in the path every
               # time the desktop changes.
               if ! [ -r "$file" ]; then
-                echo "file '$file' to resize does not exist"
+                echo "file '$file' to resize does not exist" >> $LOG_FILE
                 # No image matching the name in 'wallpapers.cfg' found.  Pick a
                 # sequential image from the path.
                 file=$(image_at_index $image_index)
-                echo "'image_at_index $image_index' returned '$file'"
+                echo "now file='$file' (image_at_index $image_index)" >> $LOG_FILE
                 ((image_index++))
               fi
               if [ -r "$file" ]; then
+                echo "resizing '$file' into resized file '$resized'" >> $LOG_FILE
                 # The terminal '^' on the size causes the aspect ratio to be
                 # preserved while the image is grown just enough completely to
                 # fill the requested size.
                 convert "$file" -resize "$(screen_size)^" $resized
               else
-                echo "no readable file '$file' exists to resize"
+                echo "no readable file '$file' exists to resize" >> $LOG_FILE
               fi
             fi
             if [ -r "$resized" ]; then
