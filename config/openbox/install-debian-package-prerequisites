@@ -6,6 +6,7 @@ apt-get install\
    feh\
    gnome-backgrounds\
    imagemagick\
+   links\
    mate-backgrounds\
    mate-screensaver-common\
    mutt\
@@ -16,6 +17,7 @@ apt-get install\
    screen\
    tint2\
    urlview\
+   vim-scripts\
    wmacpi\
    wmctrl\
    wmforkplop\
