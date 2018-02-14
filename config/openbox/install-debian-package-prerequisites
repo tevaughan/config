@@ -8,11 +8,14 @@ apt-get install\
    imagemagick\
    mate-backgrounds\
    mate-screensaver-common\
+   mutt\
    obconf\
    obmenu\
    openbox\
    pnmixer\
+   screen\
    tint2\
+   urlview\
    wmacpi\
    wmctrl\
    wmforkplop\
