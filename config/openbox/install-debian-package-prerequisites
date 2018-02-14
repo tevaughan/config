@@ -13,6 +13,7 @@ apt-get install\
    obconf\
    obmenu\
    openbox\
+   pcmanfm\
    pnmixer\
    screen\
    stterm\
