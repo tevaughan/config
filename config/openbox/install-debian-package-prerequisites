@@ -15,6 +15,7 @@ apt-get install\
    openbox\
    pnmixer\
    screen\
+   stterm\
    tint2\
    urlview\
    vim-scripts\
