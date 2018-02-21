@@ -2,16 +2,24 @@
 
 apt-get install\
    bbpager\
+   blueman\
    feh\
    gnome-backgrounds\
    imagemagick\
+   links\
    mate-backgrounds\
    mate-screensaver-common\
+   mutt\
    obconf\
    obmenu\
    openbox\
+   pcmanfm\
    pnmixer\
+   screen\
+   stterm\
    tint2\
+   urlview\
+   vim-scripts\
    wmacpi\
    wmctrl\
    wmforkplop\
@@ -21,5 +29,8 @@ apt-get install\
    wmtop\
    x11-utils\
    xdg-utils\
-   xscreensaver
-
+   xfonts-libdockapp\
+   xscreensaver\
+   xscreensaver-data-extra\
+   xscreensaver-gl\
+   xscreensaver-gl-extra
