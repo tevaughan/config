@@ -34,7 +34,7 @@
     <!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is -->
-    <primaryMonitor></primaryMonitor>
+    <primaryMonitor/>
   </placement>
   <theme>
     <name>ThinIce-Openbox</name>
@@ -118,7 +118,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>2</number>
+    <number>3</number>
     <firstdesk>1</firstdesk>
     <names>
       <!-- set names up here if you want to, like this:
@@ -126,7 +126,7 @@
     <name>desktop 2</name>
     -->
     </names>
-    <popupTime>875</popupTime>
+    <popupTime>0</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
