@@ -2,14 +2,14 @@
 # Use preference dialog in lxpanel to adjust config when you can.
 
 Global {
-  edge=bottom
+  edge=top
   align=left
   margin=0
   widthtype=percent
   width=100
-  height=26
+  height=32
   transparent=1
-  tintcolor=#7f7f7f
+  tintcolor=#4665ff
   alpha=255
   setdocktype=1
   setpartialstrut=1
@@ -19,6 +19,7 @@ Global {
   fontcolor=#ffffff
   background=0
   backgroundfile=/usr/share/lxpanel/images/background.png
+  iconsize=30
 }
 Plugin {
   type=space
@@ -95,12 +96,13 @@ Plugin {
     AcceptSkipPager=1
     ShowIconified=1
     ShowMapped=1
-    ShowAllDesks=0
-    UseMouseWheel=1
+    ShowAllDesks=-1
+    UseMouseWheel=0
     UseUrgencyHint=1
     FlatButton=0
     MaxTaskWidth=150
     spacing=1
+    GroupedTasks=1
   }
 }
 Plugin {
@@ -119,6 +121,18 @@ Plugin {
 Plugin {
   type=batt
   Config {
+    BackgroundColor=black
+    ChargingColor1=#28f200
+    ChargingColor2=#22cc00
+    DischargingColor1=#ffee00
+    DischargingColor2=#d9ca00
+    HideIfNoBattery=0
+    AlarmCommand=notify-send "Battery low" --icon=battery-caution
+    AlarmTime=5
+    BorderWidth=1
+    Size=8
+    ShowExtendedInformation=1
+    BatteryNumber=0
   }
 }
 Plugin {
@@ -131,16 +145,6 @@ Plugin {
   }
 }
 Plugin {
-  type=dclock
-  Config {
-    ClockFmt=%R
-    TooltipFmt=%A %x
-    BoldFont=0
-    IconOnly=0
-    CenterText=0
-  }
-}
-Plugin {
   type=launchbar
   Config {
     Button {
@@ -149,5 +153,15 @@ Plugin {
     Button {
       id=lxde-logout.desktop
     }
+  }
+}
+Plugin {
+  type=dclock
+  Config {
+    ClockFmt=%R
+    TooltipFmt=%Y %b %d (%a)
+    BoldFont=1
+    IconOnly=0
+    CenterText=0
   }
 }
