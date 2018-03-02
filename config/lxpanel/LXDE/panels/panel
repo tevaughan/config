@@ -66,7 +66,7 @@ Plugin {
       id=virtualbox.desktop
     }
     Button {
-      id=org.gnome.Terminal.desktop
+      id=stterm.desktop
     }
   }
 }

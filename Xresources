@@ -109,3 +109,5 @@ XTerm*VT100.scrollTtyOutput: false
 XTerm*VT100.visualBell:      true
 XTerm*VT100.visualBellLine:  true
 
+Xcursor.core: 1
+
