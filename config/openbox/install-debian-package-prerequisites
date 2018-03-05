@@ -6,6 +6,10 @@ apt-get install\
    feh\
    gnome-backgrounds\
    imagemagick\
+   kde-wallpapers-default\
+   kde-wallpapers\
+   kdeartwork-wallpapers\
+   kdewallpapers\
    links\
    mate-backgrounds\
    mate-screensaver-common\
@@ -30,7 +34,7 @@ apt-get install\
    x11-utils\
    xdg-utils\
    xfonts-libdockapp\
-   xscreensaver\
    xscreensaver-data-extra\
+   xscreensaver-gl-extra\
    xscreensaver-gl\
-   xscreensaver-gl-extra
+   xscreensaver
