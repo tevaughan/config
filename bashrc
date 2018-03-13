@@ -12,7 +12,7 @@ esac
 export EDITOR=vim
 
 # Make sure that ${MYBIN} is prepended to PATH.
-MYBIN=${HOME}/Desktop/bin
+MYBIN=${HOME}/Local/bin
 if ! echo ${PATH} | grep "${MYBIN}" > /dev/null; then
    export PATH=${MYBIN}:${PATH}
 fi
