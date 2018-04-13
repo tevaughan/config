@@ -1,6 +1,10 @@
 
-setlocal formatoptions=croql
+setlocal formatoptions=1acjnroq
+let     &formatlistpat='^\s*\w\+[.\)]\s\+\|^\s*[\-\+\*]\+\s\+\|^\s*\\t\=param\s\+\S\+\s\+'
 setlocal comments=sr:/*,mb:*,el:*/,:///,://
+setlocal colorcolumn=+1
+setlocal tw=79
+setlocal sw=2
 
 " For clang-format.
 "map <buffer> <C-K> :pyf ~/.vim/clang-format.py<CR>
