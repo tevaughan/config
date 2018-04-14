@@ -39,6 +39,9 @@ set hlsearch
 setlocal grepprg="pcregrep -n $* /dev/null"
 command! -buffer -nargs=1 Cgrep grep <q-args> `find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp'`
 
+highlight ExtraWhitespace ctermbg=green guibg=green
+match ExtraWhitespace /\s\+$/
+
 " This allows for packages locally installed (under ~/.vim/bundle) for pathogen
 " to be used.
 "execute pathogen#infect()
