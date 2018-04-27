@@ -1,8 +1,12 @@
 
-setlocal formatoptions=1acjnroq
-let     &formatlistpat='^\s*\w\+[.\)]\s\+\|^\s*[\-\+\*]\+\s\+\|^\s*\\t\=param\s\+\S\+\s\+'
+setlocal formatoptions=1cjnroq
+let     &formatlistpat='^\s*\w\+[.\)]\s\+\|^\s*[\-\+\*]\+\s\+\|^\s*@\w\+\s\+'
 setlocal comments=sr:/*,mb:*,el:*/,:///,://
+
+" For light-gray column at beginning of margin.
+highlight ColorColumn ctermbg=darkgray
 setlocal colorcolumn=+1
+
 setlocal tw=79
 setlocal sw=2
 
