@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=XTerm
+Comment=X-windows terminal emulator with sixel-graphics enabled
+Exec=xterm -ti 340
+Terminal=false
+Type=Application
+Icon=xterm-color
+Categories=System;TerminalEmulator;
+Keywords=shell;prompt;command;commandline;cmd;
+X-Desktop-File-Install-Version=0.23
+X-XFCE-Source=file:///usr/share/applications/debian-xterm.desktop
+Path=
+StartupNotify=false

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Terminology
+Comment=Terminal emulator
+Keywords=shell;prompt;command;commandline;
+Exec=terminology
+Icon=terminology
+Categories=System;TerminalEmulator;
+StartupWMClass=terminology
+X-XFCE-Source=file:///usr/share/applications/terminology.desktop

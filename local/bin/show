@@ -1,0 +1,2 @@
+#!/bin/sh
+img2sixel -w 480 $*
