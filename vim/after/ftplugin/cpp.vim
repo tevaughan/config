@@ -1,6 +1,6 @@
 
 setlocal formatoptions=1cjnroq
-let     &formatlistpat='^\s*\w\+[.\)]\s\+\|^\s*[\-\+\*]\+\s\+\|^\s*@\w\+\s\+'
+let     &formatlistpat='^\s*\d\+[.\)]\s\+\|^\s*[\-\+\*]\+\s\+\|^\s*@\w\+\s\+'
 setlocal comments=sr:/*,mb:*,el:*/,:///,://
 
 " For light-gray column at beginning of margin.
