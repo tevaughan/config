@@ -23,6 +23,11 @@ set header_cache=~/.mutt/cache/headers  # cache of headers for fast loading
 set history=50
 set history_file=~/.mutt/history
 
+# This is set by default to '/.', which has the effect of making it so that any
+# IMAP path will treat a '.' character as a folder delimiter. This is bad if
+# one ever save a message from an email address with a '.' character in the
+# name.
+set imap_delim_chars='/'
 # Maximum seconds between polling open IMAP connections to prevent server from
 # closing.
 set imap_keepalive=900
@@ -30,9 +35,12 @@ set imap_keepalive=900
 #set imap_pass = 'PASSWORD'
 set imap_user = 'tevaughan@gmail.com'
 set include=yes
+set mailcap_path="~/.mutt/mailcap"
 set message_cachedir = "~/.mutt/cache/bodies"
 set move=no  # Don't move read messages from spool to mbox.
+set pager="less -r"
 set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+set prompt_after=no
 set realname='Thomas E. Vaughan'
 set record=""  # file into which outbound message will be appended
 set signature="~/.mutt/signature"
@@ -43,4 +51,5 @@ set sort=threads
 set spoolfile="imaps://imap.gmail.com/INBOX"
 set ssl_force_tls=yes
 set ssl_starttls=yes
+set wait_key=no
 

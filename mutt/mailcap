@@ -1,0 +1,6 @@
+
+#  MIME media types and programs that process those types
+
+image/*; img2sixel %s; copiousoutput; needsterminal
+text/html; /usr/bin/w3m -o auto_image=TRUE -T text/html %s; copiousoutput; needsterminal; description=HTML Text; nametemplate=%s.html
+
