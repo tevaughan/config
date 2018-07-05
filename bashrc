@@ -161,6 +161,9 @@ fi
 
 POWERLINE_SH="/usr/share/powerline/bindings/bash/powerline.sh"
 if [ -f "$POWERLINE_SH" ]; then
+   powerline-daemon -q
+   POWERLINE_BASH_CONTINUATION=1
+   POWERLINE_BASH_SELECT=1
    . "$POWERLINE_SH"
 fi
 
