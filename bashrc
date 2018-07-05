@@ -93,61 +93,74 @@ if ! shopt -oq posix; then
   fi
 fi
 
-my_prompt() {
-   if [ $? = 0 ]; then
-      warn=no
-   else
-      warn=yes
-   fi
-   uname=$(whoami)
-   my_pwd=`echo $PWD | sed "s,^/home/$uname,~,"`
-   my_pwd_long=`echo $my_pwd | sed 's,^\([^/]*/[^/]*/\).*\(/[^/]*/[^/]*\),\1...\2,'`
-   my_pwd_shrt=`echo $my_pwd | sed 's,^\([^/]*/\).*\(/[^/]*/[^/]*\),\1...\2,'`
-   if [ "$color_prompt" = yes ]; then
-      if [ "$warn" = yes ]; then
-         PS1='\[$(tput setab 1)$(tput setaf 3)\] \u@\h \[$(tput sgr0)\] ${my_pwd_long} \$ '
-      else
-         PS1='\[$(tput setab 7)$(tput setaf 4)\] \u@\h \[$(tput sgr0)\] ${my_pwd_long} \$ '
-      fi
-   else
-      if [ "$warn" = yes ]; then
-         PS1='(PREV_CMD_ERR) \u@\h:${my_pwd_long}\$ '
-      else
-         PS1='\u@\h:${my_pwd_long}\$ '
-      fi
-   fi
-   case "$TERM" in
-      xterm*|rxvt*|screen*)
-         # Set title as my_pwd_shrt only.
-         PS1="\[\e]0;${my_pwd_shrt}\a\]$PS1"
-         ;;
-      *)
-         ;;
-   esac
-}
+#my_prompt() {
+#   if [ $? = 0 ]; then
+#      warn=no
+#   else
+#      warn=yes
+#   fi
+#   uname=$(whoami)
+#   my_pwd=`echo $PWD | sed "s,^/home/$uname,~,"`
+#   my_pwd_long=`echo $my_pwd | sed 's,^\([^/]*/[^/]*/\).*\(/[^/]*/[^/]*\),\1...\2,'`
+#   my_pwd_shrt=`echo $my_pwd | sed 's,^\([^/]*/\).*\(/[^/]*/[^/]*\),\1...\2,'`
+#   if [ "$color_prompt" = yes ]; then
+#      if [ "$warn" = yes ]; then
+#         PS1='\[$(tput setab 1)$(tput setaf 3)\] \u@\h \[$(tput sgr0)\] ${my_pwd_long} \$ '
+#      else
+#         PS1='\[$(tput setab 7)$(tput setaf 4)\] \u@\h \[$(tput sgr0)\] ${my_pwd_long} \$ '
+#      fi
+#   else
+#      if [ "$warn" = yes ]; then
+#         PS1='(PREV_CMD_ERR) \u@\h:${my_pwd_long}\$ '
+#      else
+#         PS1='\u@\h:${my_pwd_long}\$ '
+#      fi
+#   fi
+#   case "$TERM" in
+#      xterm*|rxvt*|screen*)
+#         # Set title as my_pwd_shrt only.
+#         PS1="\[\e]0;${my_pwd_shrt}\a\]$PS1"
+#         ;;
+#      *)
+#         ;;
+#   esac
+#}
+#
+#export PROMPT_COMMAND=my_prompt
+#case "$TERM" in
+#   xterm*|rxvt*|screen*)
+#      # Show the currently running command in the terminal title:
+#      # https://mg.pov.lt/blog/bash-prompt.html
+#      # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
+#      show_command_in_title_bar()
+#      {
+#         case "$BASH_COMMAND" in
+#            *\033]0*)
+#               # The command itself is trying to set the title bar as well;
+#               # this is most likely the execution of $PROMPT_COMMAND.  Nested
+#               # escapes confuse the terminal, so don't output them.
+#               ;;
+#            *)
+#               echo -ne "\033]0;${BASH_COMMAND}\007"
+#               ;;
+#         esac
+#      }
+#      trap show_command_in_title_bar DEBUG
+#      ;;
+#   *)
+#      ;;
+#esac
 
-export PROMPT_COMMAND=my_prompt
-case "$TERM" in
-   xterm*|rxvt*|screen*)
-      # Show the currently running command in the terminal title:
-      # https://mg.pov.lt/blog/bash-prompt.html
-      # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
-      show_command_in_title_bar()
-      {
-         case "$BASH_COMMAND" in
-            *\033]0*)
-               # The command itself is trying to set the title bar as well;
-               # this is most likely the execution of $PROMPT_COMMAND.  Nested
-               # escapes confuse the terminal, so don't output them.
-               ;;
-            *)
-               echo -ne "\033]0;${BASH_COMMAND}\007"
-               ;;
-         esac
-      }
-      trap show_command_in_title_bar DEBUG
-      ;;
-   *)
-      ;;
-esac
+
+# added by Miniconda3 installer
+export PATH="/opt/miniconda3/bin:$PATH"
+
+if [ "$TERM" = "mlterm" ]; then
+   export GNUTERM=sixelgd
+fi
+
+POWERLINE_SH="/usr/share/powerline/bindings/bash/powerline.sh"
+if [ -f "$POWERLINE_SH" ]; then
+   . "$POWERLINE_SH"
+fi
 

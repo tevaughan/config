@@ -22,7 +22,6 @@
         <value type="int" value="4"/>
         <value type="int" value="12"/>
         <value type="int" value="16"/>
-        <value type="int" value="8"/>
         <value type="int" value="6"/>
         <value type="int" value="5"/>
         <value type="int" value="2"/>
@@ -52,6 +51,7 @@
     <property name="plugin-5" type="string" value="clock"/>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
+        <value type="string" value="clipit"/>
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="blueman-applet"/>
       </property>
@@ -82,7 +82,6 @@
         <value type="string" value="15278742935.desktop"/>
       </property>
     </property>
-    <property name="plugin-8" type="string" value="battery"/>
     <property name="plugin-12" type="string" value="xfce4-clipman-plugin"/>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="1"/>
