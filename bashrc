@@ -30,7 +30,7 @@ shopt -s checkwinsize
 
 # Check for terminal's support of color.
 case "$TERM" in
-   xterm-color|*-256color|screen*)
+   xterm-color|*-256color|screen*|xterm-kitty)
       color_prompt=yes
       ;;
    *)
@@ -93,6 +93,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# This is largely (but perhaps not entirely) superseded by powerline.
 #my_prompt() {
 #   if [ $? = 0 ]; then
 #      warn=no
