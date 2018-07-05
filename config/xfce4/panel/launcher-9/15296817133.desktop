@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=XTerm
 Comment=X-windows terminal emulator with sixel-graphics enabled
-Exec=xterm -ti 340
+Exec=xterm -ti vt340
 Terminal=false
 Type=Application
 Icon=xterm-color

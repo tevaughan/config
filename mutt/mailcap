@@ -3,4 +3,7 @@
 
 image/*; img2sixel %s; copiousoutput; needsterminal
 text/html; /usr/bin/w3m -o auto_image=TRUE -T text/html %s; copiousoutput; needsterminal; description=HTML Text; nametemplate=%s.html
+text/html; /usr/bin/w3m -o auto_image=TRUE -T text/html %s; needsterminal; description=HTML Text; nametemplate=%s.html
+text/html; /usr/bin/w3m -o auto_image=TRUE -T text/html %s; copiousoutput; description=HTML Text; nametemplate=%s.html
+text/html; /usr/bin/w3m -o auto_image=TRUE -T text/html %s; description=HTML Text; nametemplate=%s.html
 

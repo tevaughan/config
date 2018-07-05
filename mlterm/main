@@ -1,0 +1,6 @@
+type_engine = xft
+fontsize = 12
+use_ot_layout = true
+box_drawing_font = unicode
+only_use_unicode_font = true
+scrollbar_view_name = mozmodern
