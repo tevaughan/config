@@ -1,0 +1,5 @@
+#!/usr/bin/python
+# $Id$
+
+from muttils import urlbatchercommand
+urlbatchercommand.run()
