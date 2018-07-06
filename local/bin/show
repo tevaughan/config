@@ -1,2 +1,11 @@
 #!/bin/sh
-img2sixel -w 480 $*
+
+echo "TERM='$TERM'"
+if test "$TERM" = "xterm"; then
+   img2sixel -p 16 $*
+elif test "$TERM" = "mlterm"; then
+   img2sixel $*
+elif test "$TERM" = "xterm-kitty"; then
+   kitty icat --transfer-mode=stream $*
+fi
+
