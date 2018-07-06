@@ -1,9 +1,21 @@
 
 #  MIME media types and programs that process those types
 
-image/*; img2sixel %s; copiousoutput; needsterminal
-text/html; /usr/bin/w3m -o auto_image=TRUE -T text/html %s; copiousoutput; needsterminal; description=HTML Text; nametemplate=%s.html
-text/html; /usr/bin/w3m -o auto_image=TRUE -T text/html %s; needsterminal; description=HTML Text; nametemplate=%s.html
-text/html; /usr/bin/w3m -o auto_image=TRUE -T text/html %s; copiousoutput; description=HTML Text; nametemplate=%s.html
-text/html; /usr/bin/w3m -o auto_image=TRUE -T text/html %s; description=HTML Text; nametemplate=%s.html
+# Experimental support for in-line rendering of images.
+#image/*; show %s; copiousoutput; needsterminal
+
+# This entry for 'text/html' should come first.  It is used when the user
+# explicitly choose to view via mailcap and when DISPLAY is set.
+text/html; viewhtmlmsg %s; test=test -n "$DISPLAY"; needsterminal;
+
+# This entry for 'text/html' should come second.  It is used when the user
+# choose to view via mailcap and when DISPLAY is not set.
+text/html; w3m  %s; needsterminal; nametemplate=%s.html;
+
+# This entry for 'text/html' should come last and is intended for use by mutt's
+# autoview.
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+application/pdf; /usr/bin/evince %s;
+image/*; eog %s;
 

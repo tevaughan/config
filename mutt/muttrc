@@ -1,7 +1,16 @@
 
-auto_view text/html img/*
+alternative_order text/plain text/enriched text/html
+auto_view text/html # image/*
+
 bind editor <space> noop  # Allow space in name of IMAP folder.
+bind index G imap-fetch-mail
+
 color indicator blue white
+mailboxes imaps://tevaughan@imap.gmail.com /var/mail/tevaugha
+my_hdr Bcc: tevaughan@gmail.com
+my_hdr Organization: Vaughan Family
+my_hdr X-Operating-System: `uname -a`
+my_hdr Reply-To: tevaughan@gmail.com
 
 macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
@@ -10,21 +19,17 @@ macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
 macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
 
-#mailboxes imaps://tevaughan@imap.gmail.com /var/mail/tevaugha
-mailboxes /var/mail/tevaughan +INBOX
 mime_lookup application/octet-stream
-my_hdr X-Operating-System: `uname -a`
-my_hdr Reply-To: tevaughan@gmail.com
-my_hdr Bcc: tevaughan@gmail.com
 
 set certificate_file=~/.mutt/certificates
 set confirmappend=no
 set confirmcreate=no
 set copy=no  # Don't save copy of outbound message.
+set envelope_from_address="tevaughan@gmail.com"
 set editor=vim
 set folder="imaps://imap.gmail.com/"  # where to save mail
-set from='tevaughan@gmail.com'
-set header_cache=~/.mutt/cache/headers  # cache of headers for fast loading
+set from="tevaughan@gmail.com"
+set header_cache=~/.mutt/cache/headers  # Cache of headers for fast loading.
 set history=50
 set history_file=~/.mutt/history
 
@@ -33,18 +38,28 @@ set history_file=~/.mutt/history
 # one ever save a message from an email address with a '.' character in the
 # name.
 set imap_delim_chars='/'
+
 # Maximum seconds between polling open IMAP connections to prevent server from
 # closing.
 set imap_keepalive=900
 
-#set imap_pass = 'PASSWORD'
+# The mailcap file can be set up to render an image in line, via 'img2sixel -p
+# 16' for 'xterm -ti vt340' or via 'img2sixel' for 'mlterm'.  In principle,
+# this could work for 'kitty' via 'kitty icat'.  However, there are problems
+# with each solution, and there is no muttrc setting that works for all of
+# them.  Some seem to require 'less -r' as the pager; kitty doesn't work with
+# that.
+#
+#set pager="less -rX"
+#set wait_key=yes
+
 set imap_user = 'tevaughan@gmail.com'
 set include=yes
 set mailcap_path="~/.mutt/mailcap"
+set mail_check=90  # Recommended in documentation for IMAP.
 set mbox="+[Gmail]/All Mail"
 set message_cachedir = "~/.mutt/cache/bodies"
 set move=no  # Don't move read messages from spool to mbox.
-set pager="less -r"
 set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
 #set postponed="+[Gmail]/Drafts"
 set prompt_after=no
@@ -63,5 +78,11 @@ set spoolfile="+INBOX"
 set ssl_force_tls=yes
 set ssl_starttls=yes
 set tilde
-set wait_key=no
+set timeout=15  # Recommended in documentation for IMAP.
+
+macro pager G "<pipe-message>viewhtmlmsg<enter>" "View message in browser."
+
+# Make it so that pressing <RET> in the attachment menu has the same effect as
+# pressing 'm', to use the mailcap file rather than autoview on text/html.
+bind attach <return> view-mailcap
 
