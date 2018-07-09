@@ -1,0 +1,6 @@
+layout=0
+date_font=Liberation Serif 10
+time_font=Liberation Serif 12
+date_format=%Y-%b-%d
+time_format=%H:%M
+
