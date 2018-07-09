@@ -4,8 +4,8 @@ Version=1.0
 Encoding=UTF-8
 Type=X-XFCE-Helper
 X-XFCE-Category=TerminalEmulator
-X-XFCE-CommandsWithParameter=kitty "%s"
-Icon=kitty
-Name=kitty
-X-XFCE-Commands=kitty
+X-XFCE-CommandsWithParameter=mlterm "%s"
+Icon=mlterm
+Name=mlterm
+X-XFCE-Commands=mlterm
 
