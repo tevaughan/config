@@ -30,8 +30,14 @@ shopt -s checkwinsize
 
 # Check for terminal's support of color.
 case "$TERM" in
-   xterm-color|*-256color|screen*|xterm-kitty)
+   xterm-*|*-256color|screen*)
       color_prompt=yes
+      ;;
+   xterm-kitty)
+      color_prompt=yes
+      if ! which kitty > /dev/null; then
+         export TERM=xterm
+      fi
       ;;
    *)
       if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -94,7 +100,7 @@ if ! shopt -oq posix; then
 fi
 
 # added by Miniconda3 installer
-export PATH="/opt/miniconda3/bin:$PATH"
+#export PATH="/opt/miniconda3/bin:$PATH"
 
 # Expand python search path.
 export PYTHONPATH="$HOME/Local/lib/python"
