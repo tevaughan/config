@@ -30,14 +30,14 @@ shopt -s checkwinsize
 
 # Check for terminal's support of color.
 case "$TERM" in
-   xterm-*|*-256color|screen*)
-      color_prompt=yes
-      ;;
    xterm-kitty)
       color_prompt=yes
       if ! which kitty > /dev/null; then
          export TERM=xterm
       fi
+      ;;
+   xterm-*|*-256color|screen*)
+      color_prompt=yes
       ;;
    *)
       if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
