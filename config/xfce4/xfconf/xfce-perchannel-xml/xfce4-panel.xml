@@ -46,7 +46,7 @@
     <property name="plugin-3" type="string" value="xfce4-clipman-plugin"/>
     <property name="plugin-5" type="string" value="datetime"/>
     <property name="plugin-6" type="string" value="directorymenu">
-      <property name="base-directory" type="string" value="/net/nort/home/tevaughan"/>
+      <property name="base-directory" type="string" value="/"/>
     </property>
     <property name="plugin-7" type="string" value="systray">
       <property name="names-visible" type="array">
