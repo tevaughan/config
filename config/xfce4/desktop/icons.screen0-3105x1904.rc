@@ -13,16 +13,16 @@ col=0
 row=15
 col=0
 
+[/home/tevaugha/Desktop/focus]
+row=7
+col=0
+
 [/home/tevaugha/Desktop/walter-contact.png]
 row=10
 col=1
 
 [/home/tevaugha/Desktop/bin]
 row=4
-col=0
-
-[/home/tevaugha/Desktop/physics]
-row=17
 col=0
 
 [/home/tevaugha/Desktop/svn-tevaugha]
@@ -33,8 +33,8 @@ col=1
 row=1
 col=1
 
-[/home/tevaugha/Desktop/old]
-row=16
+[/home/tevaugha/Desktop/mcs]
+row=14
 col=0
 
 [/home/tevaugha/Desktop/hello]
@@ -45,9 +45,9 @@ col=0
 row=5
 col=0
 
-[/home/tevaugha/Desktop/mcs]
-row=14
-col=0
+[/home/tevaugha/Desktop/var]
+row=6
+col=1
 
 [/home/tevaugha/Desktop/god-of-gaps]
 row=11
@@ -55,10 +55,6 @@ col=0
 
 [/home/tevaugha/Desktop/scripts]
 row=2
-col=1
-
-[/home/tevaugha/Desktop/var]
-row=6
 col=1
 
 [/home/tevaugha/Desktop/arm]
@@ -77,16 +73,24 @@ col=0
 row=0
 col=1
 
+[/home/tevaugha/Desktop/old]
+row=16
+col=0
+
 [/home/tevaugha/Desktop/notes-on-bhpt-ch2.pdf]
 row=8
 col=1
 
-[/home/tevaugha/Desktop/focus]
-row=7
+[/home/tevaugha/Desktop/physics]
+row=17
 col=0
 
 [/home/tevaugha/Desktop/tmp]
 row=5
+col=1
+
+[/home/tevaugha/Desktop/julia-hello.ipynb]
+row=11
 col=1
 
 [/home/tevaugha/Desktop/src]
