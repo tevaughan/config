@@ -44,7 +44,7 @@
             <value type="uint" value="65535"/>
           </property>
           <property name="image-style" type="int" value="6"/>
-          <property name="last-image" type="string" value="/net/nort/home/tevaughan/Local/share/backgrounds/bridge-mountains-cars.jpg"/>
+          <property name="last-image" type="string" value="/home/tevaughan/Local/share/backgrounds/bridge-mountains-cars.jpg"/>
         </property>
         <property name="workspace2" type="empty">
           <property name="color-style" type="int" value="1"/>
