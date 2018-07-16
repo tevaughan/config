@@ -1,5 +1,5 @@
 [Configuration]
-FontName=Liberation Mono 9
+FontName=Liberation Mono 7
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -28,4 +28,5 @@ MiscNewTabAdjacent=FALSE
 ScrollingOnOutput=FALSE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=0.900000
+MiscDefaultWorkingDir=
 
