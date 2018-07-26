@@ -3,7 +3,7 @@
 <channel name="xsettings" version="1.0">
   <property name="Net" type="empty">
     <property name="ThemeName" type="string" value="Clearlooks-Phenix"/>
-    <property name="IconThemeName" type="string" value="gartoon"/>
+    <property name="IconThemeName" type="string" value="gnome"/>
     <property name="DoubleClickTime" type="empty"/>
     <property name="DoubleClickDistance" type="empty"/>
     <property name="DndDragThreshold" type="empty"/>
@@ -23,7 +23,8 @@
   <property name="Gtk" type="empty">
     <property name="CanChangeAccels" type="empty"/>
     <property name="ColorPalette" type="empty"/>
-    <property name="FontName" type="string" value="Georgia 10"/>
+    <property name="FontName" type="string" value="DejaVu Serif 9"/>
+    <property name="MonospaceFontName" type="string" value="Hack 7"/>
     <property name="IconSizes" type="empty"/>
     <property name="KeyThemeName" type="empty"/>
     <property name="ToolbarStyle" type="empty"/>
@@ -34,6 +35,5 @@
     <property name="CursorThemeName" type="empty"/>
     <property name="CursorThemeSize" type="empty"/>
     <property name="DecorationLayout" type="empty"/>
-    <property name="MonospaceFontName" type="string" value="Liberation Mono 9"/>
   </property>
 </channel>

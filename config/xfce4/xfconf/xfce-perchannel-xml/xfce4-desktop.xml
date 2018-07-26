@@ -27,7 +27,7 @@
             <value type="uint" value="65535"/>
           </property>
           <property name="image-style" type="int" value="6"/>
-          <property name="last-image" type="string" value="/home/tevaughan/Local/share/backgrounds/breaking-wave.jpg"/>
+          <property name="last-image" type="string" value="/home/tevaugha/Local/share/backgrounds/breaking-wave.jpg"/>
         </property>
         <property name="workspace1" type="empty">
           <property name="color-style" type="int" value="1"/>
@@ -44,7 +44,7 @@
             <value type="uint" value="65535"/>
           </property>
           <property name="image-style" type="int" value="6"/>
-          <property name="last-image" type="string" value="/home/tevaughan/Local/share/backgrounds/bridge-mountains-cars.jpg"/>
+          <property name="last-image" type="string" value="/home/tevaugha/Local/share/backgrounds/bridge-mountains-cars.jpg"/>
         </property>
         <property name="workspace2" type="empty">
           <property name="color-style" type="int" value="1"/>
@@ -61,7 +61,7 @@
             <value type="uint" value="65535"/>
           </property>
           <property name="image-style" type="int" value="6"/>
-          <property name="last-image" type="string" value="/home/tevaughan/Local/share/backgrounds/field-crop-wheat-hay.jpg"/>
+          <property name="last-image" type="string" value="/home/tevaugha/Local/share/backgrounds/fall-trail.jpg"/>
         </property>
         <property name="workspace3" type="empty">
           <property name="color-style" type="int" value="1"/>
@@ -78,7 +78,7 @@
             <value type="uint" value="65535"/>
           </property>
           <property name="image-style" type="int" value="6"/>
-          <property name="last-image" type="string" value="/home/tevaughan/Local/share/backgrounds/fall-trail.jpg"/>
+          <property name="last-image" type="string" value="/home/tevaugha/Local/share/backgrounds/louise-lake-canada.jpg"/>
         </property>
       </property>
       <property name="monitor1" type="empty">
