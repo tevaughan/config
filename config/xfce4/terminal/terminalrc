@@ -1,5 +1,5 @@
 [Configuration]
-FontName=Hack 9
+FontName=Hack 8
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -26,7 +26,6 @@ MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
 ScrollingOnOutput=FALSE
-BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=0.900000
 MiscDefaultWorkingDir=
 
