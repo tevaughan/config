@@ -5,6 +5,7 @@
     <property name="known_applications" type="array">
       <value type="string" value="Firefox"/>
       <value type="string" value="google-chrome"/>
+      <value type="string" value="Xfce volume control"/>
     </property>
   </property>
 </channel>
