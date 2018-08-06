@@ -8,12 +8,14 @@
       <property name="position" type="string" value="p=6;x=224;y=24"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="2"/>
+        <value type="int" value="14"/>
         <value type="int" value="9"/>
         <value type="int" value="5"/>
         <value type="int" value="7"/>
         <value type="int" value="8"/>
         <value type="int" value="6"/>
         <value type="int" value="10"/>
+        <value type="int" value="11"/>
         <value type="int" value="3"/>
         <value type="int" value="12"/>
         <value type="int" value="13"/>
@@ -60,12 +62,13 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
     </property>
     <property name="plugin-11" type="string" value="notification-plugin"/>
-    <property name="plugin-12" type="string" value="systray">
-      <property name="names-visible" type="array">
-        <value type="string" value="clipit"/>
-      </property>
-    </property>
+    <property name="plugin-12" type="string" value="systray"/>
     <property name="plugin-13" type="string" value="datetime"/>
     <property name="plugin-4" type="string" value="datetime"/>
+    <property name="plugin-14" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15329210551.desktop"/>
+      </property>
+    </property>
   </property>
 </channel>
