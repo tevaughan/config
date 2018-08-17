@@ -88,6 +88,8 @@ if [ -r "$aliases_conf" ]; then
   echo "done"
 fi
 
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"'
+
 # Enable programmable completion features. (You don't need to enable this if it
 # be already enabled in /etc/bash.bashrc and /etc/profile sources
 # /etc/bash.bashrc).
