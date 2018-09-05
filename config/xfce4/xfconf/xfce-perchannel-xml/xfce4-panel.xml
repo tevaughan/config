@@ -19,9 +19,9 @@
         <value type="int" value="10"/>
         <value type="int" value="12"/>
         <value type="int" value="6"/>
+        <value type="int" value="8"/>
         <value type="int" value="13"/>
         <value type="int" value="4"/>
-        <value type="int" value="8"/>
         <value type="int" value="2"/>
       </property>
     </property>
@@ -64,6 +64,7 @@
     </property>
     <property name="plugin-5" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="1"/>
     </property>
     <property name="plugin-6" type="string" value="xfce4-clipman-plugin"/>
     <property name="plugin-7" type="string" value="directorymenu">
