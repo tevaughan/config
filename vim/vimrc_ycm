@@ -12,3 +12,9 @@ let g:ycm_always_populate_loc_list = 1
 " Tell YCM not to ask before loading an extra_conf file.
 let g:ycm_confirm_extra_conf = 0
 
+" Work around problem in which signs are not being cleared.
+let g:ycm_enable_diagnostic_signs = 0
+
+let g:ycm_enable_diagnostic_highlighting = 1
+let g:ycm_open_loclist_on_ycm_diags = 1
+

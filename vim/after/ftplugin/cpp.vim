@@ -17,3 +17,6 @@ map <buffer> <C-K> :py3f ~/.vim/clang-format.py<CR>
 setlocal grepprg="pcregrep -n $* /dev/null"
 command! -buffer -nargs=1 Cgrep grep <q-args> `find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp'`
 
+" ';' means to use tags nearest tags file here or in superior directory
+" hierarchy.
+setlocal tags=tags;
