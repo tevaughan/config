@@ -101,12 +101,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Miniconda3 installer
-#export PATH="/opt/miniconda3/bin:$PATH"
-
-# Expand python search path.
-export PYTHONPATH="$HOME/Local/lib/python"
-
 if [ "$TERM" = "mlterm" ]; then
    export GNUTERM=sixelgd
 fi

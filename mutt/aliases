@@ -1,0 +1,110 @@
+
+alias adam       drsupernova@juno.com (Adam Fisher)
+#alias alan      t_a_ward@ti.cz (Alan W. Thomas)
+alias baron      baron@mail.nhn.ou.edu (Eddie Baron)
+alias bill       wmartin@rossby.metr.ou.edu (Bill Martin)
+alias branch     branch@mail.nhn.ou.edu (David Branch)
+alias brian      brian_zucker@dell.com (Brian Zucker)
+alias charles    cmvaughan@earthlink.net (Charles M. Vaughan)
+alias charley_s  charleysanders@hotmail.com (Charley Sanders)
+alias charley_n  charley.n@att.net (Charley Noecker at home)
+alias chris      vaughan99@yahoo.com (Christopher N. Vaughan)
+alias cschultz_h chrisorliz@home.com (Chris and Liz Schultz)
+alias cschultz_w CSchultz@objectspace.com (Christopher Schultz)
+alias curtis     curtisv8@aol.com (Curtis Vogel)
+alias curtis_w   curtis.vogel@nbc.com (Curtis Vogel)
+alias dan        major@gbronline.com (Dan C. Major)
+alias dschultz   schultzman@sprynet.com (David Schultz)
+alias dwrenn     dwrenn@mmcable.com (David Wrenn)
+alias dwrenn_alt dwrenn@cos.com (David Wrenn)
+alias edith      editht@together.net (Edith Garwood)
+alias erin       erin.c.chambers-1@ou.edu (Erin Chambers)
+alias fabio      fhernand@lasmx.tinker.af.mil (Fabio Hernandez)
+alias george     george.vaughan@gmail.com (George M. Vaughan)
+alias jackie     jmilingo@gettysburg.edu (Jackie Milingo)
+#alias janice    bbgammaw@aol.com (Janice Schultz)
+alias jason      jason.lynn@nssl.noaa.gov (Jason Lynn)
+alias jeff       jeff@neobox.net (Jeff Schroeder)
+#alias jimmy      jwise@snet.net (Jimmy Wise)
+alias jimmy      jwise4@yahoo.com (Jimmy Wise)
+alias joe        jwhoward@ssu.edu (Joe Howard)
+#alias john       johnmarcyv@freewwweb.com (John, Marcy, Russell, Miles)
+alias john_juno  johnmarcyv@juno.com (John and Marcy Vaughan)
+alias john_msn   johnmarcyv@msn.com (John and Marcy Vaughan)
+alias john_sbc   johnmarcyv@sbcglobal.net (John Vaughan)
+alias jt         johnson@nssl.noaa.gov (J. T. Johnson)
+alias julia      meriwejm@aol.com (Julia Meriwether)
+alias karen      kcooper@enterprise.nssl.noaa.gov (Karen Cooper)
+alias kelly      kelly.a.parham@lmco.com (Kelly Parham)
+alias lakshmanan lakshman@nssl.noaa.gov (V. Lakshmanan)
+alias lark1      larkho@ghgcorp.com (Lark Howorth)
+alias lark       larkho@earthlink.net (Lark Howorth)
+alias lbrown     lbrown@littlehouseontheweb.com (Lawrence Brown)
+alias lila       lbeckley@tnrcc.state.tx.us (Lila Beckley)
+alias lila_alt   lbeckley@hotmail.com (Lila Beckley)
+alias lulin      lsong@enterprise.nssl.noaa.gov (Lulin Song)
+alias mary       vaughanmk@aol.com (Mary K. Vaughan)
+alias mark       ghigman3@hotmail.com (Mark Ghigliotti)
+alias matt       matthew_johnson@acs-inc.com (Matthew Johnson)
+alias meredith   meredith@hedrick.org (Meredith Hedrick)
+alias michele_w  michele_bronson@chiron.com (Michele at work)
+alias michelle   memoore_us@yahoo.com (Michelle Moore)
+alias mike_vovida mlehmann@vovida.com (Mike Lehmann)
+alias mike_lmco  michael.j.mills@lmco.com (Michael J. Mills)
+alias misha      misha.vaughan@oracle.com (Misha W. Vaughan)
+#alias monty      montfenn@aol.com (Monty Waldron)
+alias msm        msm.1@juno.com
+alias nate       nate@primusllp.com (Nate Nickerson)
+alias olen       boydstun@mail.nhn.ou.edu (Olen Boydstun)
+alias pranav     pranavb1@msn.com (Pranav Badhwar)
+alias pranav_alt pranavb1@comcast.net (Pranav Badhwar)
+alias randy      tallrandyb@earthlink.net (Randy Brown)
+alias rick_k     richard.w.kasuda@lmco.com (Rick Kasuda)
+alias russell    russell.carpenter@gsfc.nasa.gov (Russell Carpenter)
+alias russell_alt russell.carpenter@alumni.utexas.net (Russell Carpenter)
+alias shannon    ShannonStearman@aol.com (Shannon Stearman)
+alias shannon_alt shannonstearman@yahoo.com (Shannon Stearman)
+alias ski        ski@mail.nhn.ou.edu (Ron Kantowski)
+alias stephanie  steph_mcmullen@yahoo.com (Stephanie Vaughan)
+alias stupager   8887333084@my2way.com (Stuart Gray\'s pager)
+alias tad        thurston@wanerious.com (Tad R. Thurston)
+alias thomas     thomas@mail.nhn.ou.edu (Rollin Thomas)
+alias todd       Todd-Walker@mail.omrf.ouhsc.edu (Todd Walker)
+alias tommy      tommye@pop500.gsfc.nasa.gov (Tommy Ericson)
+alias ursula     sr.ursula@juno.com (Sister Ursula)
+alias varahan    varahan@mailhost.ecn.ou.edu (S. Lakshmivarahan)
+alias walter     ealket@hotmail.com (Walter Lee Howard IV)
+alias walter_alt ealket@earthlink.net (Walter Lee Howard IV)
+alias wjr        wjr@mail.nhn.ou.edu (Bill Romanishin)
+
+alias alan        alan_cz
+alias charles     charles_h
+alias chris       chris_h
+alias committee   baron, branch, ski, wjr
+alias cschultz    cschultz_h, cschultz_w
+alias lark        lark1
+alias michele     michele_w
+alias mike        mike_vovida
+
+alias nuclear     charles, chris, george, mary, vanessa
+alias extended    lbrown, john, misha, randy, stephanie
+alias family      nuclear, extended
+
+alias highschool1 brian, curtis, edith, julia, lark, lila, meredith
+alias highschool2 michele, russell, shannon, walter
+alias highschool  highschool1 highschool2
+alias gymnastics  alan, dschultz, kent, matt
+alias undergrad   cschultz, dwrenn, fabio, janice, gymnastics
+alias grad_old    adam, baron, branch, dan, joe, olen, tad, todd, tommy
+alias grad_new    charley, jackie, thomas
+alias gradschool  grad_old, grad_new
+alias hughes      jeff
+alias lmco        kelly, mike_lmco
+alias nssl        karen, lakshmanan
+alias friends     highschool, undergrad, gradschool, hughes, lmco, nssl
+
+alias re          dano, bill, ryan, mark, melissa, ursula
+alias origins     orig-list, dan, dschultz, erin, monty, msm
+
+alias charley     mcnoecke, charley_n
+

@@ -1,3 +1,0 @@
-#!/bin/sh
-export PATH=`echo $PATH | sed 's,/opt/miniconda3/bin,,g'`
-/usr/bin/gvim $*
