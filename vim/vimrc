@@ -1,11 +1,14 @@
 
-" Vundle configuration.
-set nocompatible           " Never comment this out!
-runtime vimrc_vundle       " Contains lines that may be commented out.
-filetype plugin indent on  " Never comment this out!
+" Note that for a third-party package, such as a git-repository unpacked under
+" '~/.vim/pack', one must manually run ':helptags ~/.vim/pack/....' in order to
+" build the help pages.
 
-runtime vimrc_syntastic
+set nocompatible
+filetype plugin on
+syntax on
+
 runtime vimrc_ycm
+runtime vimrc_wiki
 
 if   &term == "xterm"
 \ || &term == "xterm-256color"
@@ -40,7 +43,6 @@ if has("gui_running")
    set columns=100
 endif
 
-syntax on
 set hlsearch
 
 setlocal grepprg="pcregrep -n $* /dev/null"
@@ -48,8 +50,4 @@ command! -buffer -nargs=1 Cgrep grep <q-args> `find . -iname '*.c' -o -iname '*.
 
 highlight ExtraWhitespace ctermbg=blue guibg=blue
 match ExtraWhitespace /\s\+$/
-
-" This allows for packages locally installed (under ~/.vim/bundle) for pathogen
-" to be used.
-"execute pathogen#infect()
 
