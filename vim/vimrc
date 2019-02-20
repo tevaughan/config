@@ -1,7 +1,8 @@
 
 " Note that for a third-party package, such as a git-repository unpacked under
-" '~/.vim/pack', one must manually run ':helptags ~/.vim/pack/....' in order to
-" build the help pages.
+" '~/.vim/pack', one must manually run, for example,
+" ':helptags " ~/.vim/pack/plugins/start/vimwiki/doc'
+" in order to build the help pages.
 
 set nocompatible
 filetype plugin on

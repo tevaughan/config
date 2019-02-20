@@ -1,16 +1,16 @@
 " Configuration for vimwiki.
 
-let wiki_notes = {}
-let wiki_notes.path = '~/Desktop/notes/wiki-src/'
-let wiki_notes.path_html = '~/Desktop/notes/html/'
-let wiki_notes.auto_toc = 1
-let wiki_notes.auto_tags = 1
+let wiki_journal = {}
+let wiki_journal.path = '~/Desktop/journal/wiki-src/'
+let wiki_journal.auto_toc = 1
+let wiki_journal.auto_tags = 1
+let wiki_journal.ext = '.md'
+let wiki_journal.syntax = 'markdown'
 
 let wiki_misc = {}
 let wiki_misc.path = '~/Desktop/misc/wiki-src/'
-let wiki_misc.path_html = '~/Desktop/misc/html/'
 
-let g:vimwiki_list = [wiki_notes, wiki_misc]
+let g:vimwiki_list = [wiki_journal, wiki_misc]
 let g:vimwiki_use_calendar = 1
 
 let mapleader=","
