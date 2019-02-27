@@ -14,3 +14,6 @@ let g:vimwiki_list = [wiki_journal, wiki_misc]
 let g:vimwiki_use_calendar = 1
 
 let mapleader="-"
+
+autocmd FileType vimwiki setlocal tabstop=4 expandtab
+autocmd FileType markdown setlocal tabstop=4 expandtab
