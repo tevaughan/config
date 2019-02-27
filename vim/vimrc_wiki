@@ -18,4 +18,3 @@ let mapleader="-"
 
 autocmd FileType vimwiki setlocal tabstop=4 expandtab
 autocmd FileType markdown setlocal tabstop=4 expandtab
-
