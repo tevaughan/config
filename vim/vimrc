@@ -5,7 +5,7 @@
 " in order to build the help pages.
 
 set nocompatible
-filetype plugin on
+filetype plugin indent on
 syntax on
 
 runtime vimrc_ycm
@@ -31,7 +31,7 @@ set   mouse=a
 set   mousefocus
 set   mousehide
 set norestorescreen
-set   shiftwidth=3
+set   shiftwidth=2
 set   showmatch
 set   statusline=%-f\ %m\ %y\ row=%l\ col=%c
 set   tabstop=8
