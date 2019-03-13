@@ -27,6 +27,7 @@ set   expandtab
 set   history=100
 set   incsearch
 set   laststatus=2
+set   modeline
 set   mouse=a
 set   mousefocus
 set   mousehide
