@@ -13,6 +13,9 @@ let wiki_misc.path = '~/Desktop/misc/wiki-src/'
 let g:vimwiki_list = [wiki_journal, wiki_misc]
 let g:vimwiki_use_calendar = 1
 
+" Let markdown file not inside registered wiki be rendered as markdown.
+let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+
 let mapleader="-"
 
 autocmd FileType vimwiki setlocal tabstop=4 expandtab
