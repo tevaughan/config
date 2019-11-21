@@ -11,14 +11,14 @@ syntax on
 runtime vimrc_ycm
 runtime vimrc_wiki
 
-if   &term == "xterm"
-\ || &term == "xterm-256color"
-\ || &term == "stterm-256color"
-\ || &term == "screen"
-\ || &term == "screen.xterm-256color"
-   set t_Co=256
-   colorscheme inkpot
-endif
+"if   &term == "xterm"
+"\ || &term == "xterm-256color"
+"\ || &term == "stterm-256color"
+"\ || &term == "screen"
+"\ || &term == "screen.xterm-256color"
+"   set t_Co=256
+"   colorscheme inkpot
+"endif
 
 set   ai
 set   backspace=1
