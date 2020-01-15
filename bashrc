@@ -8,14 +8,7 @@ case $- in
       *) return;;
 esac
 
-# I require that vim be installed!
-export EDITOR=vim
-
-# Make sure that ${MYBIN} is prepended to PATH.
-MYBIN=${HOME}/Local/bin
-if ! echo ${PATH} | grep "${MYBIN}" > /dev/null; then
-   export PATH=${MYBIN}:${PATH}
-fi
+echo "running $HOME/.bashrc"
 
 # Put into history neither duplicate lines nor any line starting with space.
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1).
@@ -50,6 +43,7 @@ case "$TERM" in
       fi
       ;;
 esac
+
 if [ "$color_prompt" = "yes" ]; then
    # Enable color support in ls, grep, and GCC.
    if [ -x /usr/bin/dircolors ]; then

@@ -35,7 +35,9 @@ import vim
 
 # set g:clang_format_path to the path to clang-format if it is not on the path
 # Change this to the full path if clang-format is not on the path.
-binary = 'clang-format'
+#binary = 'clang-format'
+#binary = 'clang-format-9' # latest available on Debian unstable as of 2020 Jan
+binary = 'clang-format-8' # latest available on Debian buster
 if vim.eval('exists("g:clang_format_path")') == "1":
   binary = vim.eval('g:clang_format_path')
 
