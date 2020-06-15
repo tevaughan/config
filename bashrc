@@ -107,3 +107,5 @@ if [ -f "$POWERLINE_SH" ]; then
    . "$POWERLINE_SH"
 fi
 
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
