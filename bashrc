@@ -21,6 +21,13 @@ shopt -s histappend # Append to the history file; don't overwrite it.
 # of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
 # Check for terminal's support of color.
 case "$TERM" in
    xterm-kitty)
@@ -107,5 +114,7 @@ if [ -f "$POWERLINE_SH" ]; then
    . "$POWERLINE_SH"
 fi
 
-#export PATH="$HOME/.rbenv/bin:$PATH"
-#eval "$(rbenv init -)"
+if [ -d "$HOME/.rbenv/bin" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
