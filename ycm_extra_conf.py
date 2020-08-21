@@ -27,7 +27,7 @@ FLAGS = [
     # which language to use when compiling headers.  ALWAYS specify a
     # "-std=<something>".  For a C project, you would set this to something
     # like 'c99' instead of 'c++11'.
-    '-std=c++11',
+    '-std=c++17',
 
     # ...and the same thing goes for the magic -x option which specifies the
     # language that the files to be compiled are written in.  This is mostly
@@ -39,11 +39,11 @@ FLAGS = [
     '-I', 'include',
 
     # work-around from https://github.com/Valloric/YouCompleteMe/issues/2170
-    '-isystem', '/usr/include/c++/6',
-    '-isystem', '/usr/include/c++/6/backward',
-    '-isystem', '/usr/lib/clang/3.8.1/include',
-    '-isystem', '/usr/include',
-    '-isystem', '/usr/local/include',
+    #'-isystem', '/usr/include/c++/6',
+    #'-isystem', '/usr/include/c++/6/backward',
+    #'-isystem', '/usr/lib/clang/3.8.1/include',
+    #'-isystem', '/usr/include',
+    #'-isystem', '/usr/local/include',
 ]
 
 SOURCE_EXTENSIONS = ['.cpp', '.cxx', '.cc', '.c']

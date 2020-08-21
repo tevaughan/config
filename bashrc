@@ -10,6 +10,8 @@ esac
 
 echo "running $HOME/.bashrc"
 
+umask o-w  # Disallow non-user, non-group permission to write.
+
 # Put into history neither duplicate lines nor any line starting with space.
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1).
 HISTCONTROL=ignoreboth
