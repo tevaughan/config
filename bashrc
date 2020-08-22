@@ -91,7 +91,22 @@ if [ -r "$aliases_conf" ]; then
   echo "done"
 fi
 
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"'
+# Change terminal's title, and print a status-line before PS1 is printed.
+__prompt_command() {
+  local e="$?"                                      # This needs to be first.
+  echo -ne "\033]0;${USER}@${HOSTNAME}\007"         # Change terminal's title.
+  # Print status-line without termination.
+  tput rev; echo -n "${PWD}"; tput sgr0
+  # Possibly print error-code, and terminate in any event.
+  if [ $e != 0 ]; then
+    tput setaf 1; echo " $e"; tput sgr0  # Print return-code in red.
+  else
+    echo ""
+  fi
+}
+
+export PROMPT_COMMAND=__prompt_command
+export PS1="\u@\h \$ "
 
 # Enable programmable completion features. (You don't need to enable this if it
 # be already enabled in /etc/bash.bashrc and /etc/profile sources
@@ -108,15 +123,3 @@ if [ "$TERM" = "mlterm" ]; then
    export GNUTERM=sixelgd
 fi
 
-POWERLINE_SH="/usr/share/powerline/bindings/bash/powerline.sh"
-if [ -f "$POWERLINE_SH" ]; then
-   powerline-daemon -q
-   POWERLINE_BASH_CONTINUATION=1
-   POWERLINE_BASH_SELECT=1
-   . "$POWERLINE_SH"
-fi
-
-if [ -d "$HOME/.rbenv/bin" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
