@@ -1,5 +1,9 @@
 # config
 
+I am deprecating this repository as I move to the corresponding repository in
+my gitlab account.
+
+
 Configuration for vim, bash, and other programs.
 
 This repository contains configuration files in a structure that is relative to
