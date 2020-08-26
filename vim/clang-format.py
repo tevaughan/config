@@ -35,7 +35,7 @@ import vim
 
 # set g:clang_format_path to the path to clang-format if it is not on the path
 # Change this to the full path if clang-format is not on the path.
-binary = 'clang-format'
+binary = 'clang-format-10'
 if vim.eval('exists("g:clang_format_path")') == "1":
   binary = vim.eval('g:clang_format_path')
 
@@ -101,7 +101,7 @@ def main():
     lines = lines[1:]
     sequence = difflib.SequenceMatcher(None, vim.current.buffer, lines)
     for op in reversed(sequence.get_opcodes()):
-      if op[0] is not 'equal':
+      if op[0] != 'equal':
         vim.current.buffer[op[1]:op[2]] = lines[op[3]:op[4]]
     if output.get('IncompleteFormat'):
       print('clang-format: incomplete (syntax errors)')
