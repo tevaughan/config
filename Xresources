@@ -14,7 +14,7 @@ XTerm*SimpleMenu*Cursor: left_ptr
 !XTerm*faceSize: 9
 
 !XTerm*faceName: DejaVu Sans Mono for Powerline:size=9
-XTerm*faceName: Liberation Mono:size=9
+!XTerm*faceName: Liberation Mono:size=9
 
 ! Here is a pattern that is useful for double-clicking on a URL:
 XTerm*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
@@ -95,9 +95,9 @@ XTerm*VT100.alternateScroll:  true
 XTerm*VT100.cursorColor:      cyan
 XTerm*VT100.dynamicColors:    on
 !XTerm*VT100.faceName:         Liberation Mono
-XTerm*VT100*geometry:         84x25
+XTerm*VT100*geometry:         166x50
 !XTerm*VT100*renderFont:       default
-XTerm*VT100.saveLines:        4096
+XTerm*VT100.saveLines:        8192
 XTerm*VT100.scrollBar:        true
 XTerm*VT100.scrollbar.translations:#override \n\
   <Btn5Down>:StartScroll(Forward) \n\

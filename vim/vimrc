@@ -22,6 +22,7 @@ endif
 
 set   ai
 set   backspace=1
+"set   bg=light
 set   bs=2
 set   expandtab
 set   history=100
