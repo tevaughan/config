@@ -24,6 +24,7 @@ set   ai
 set   backspace=1
 "set   bg=light
 set   bs=2
+set   encoding=utf-8
 set   expandtab
 set   history=100
 set   incsearch
