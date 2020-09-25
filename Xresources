@@ -2,48 +2,52 @@
 Fig.latexfonts: true
 Fig.specialtext: true
 
-! Cause the selection to be copied to the clipboard.
-XTerm*selectToClipboard: true
+! Allow 'resize -s' to work.
+xterm*allowWindowOps: true
 
-XTerm*SimpleMenu*Cursor: left_ptr
+! Cause the selection to be copied to the clipboard.
+xterm*selectToClipboard: true
+
+xterm*SimpleMenu*Cursor: left_ptr
 
 ! xterm can switch at runtime between bitmap (default) and TrueType fonts.
 ! The "faceSize" resource controls the size of the latter.  However, it was
 ! originally given with a size that makes the two types of fonts different
 ! sizes.  Uncomment this line to use the same size as "fixed".
-!XTerm*faceSize: 9
+xterm*faceSize: 9
 
-!XTerm*faceName: DejaVu Sans Mono for Powerline:size=9
-!XTerm*faceName: Liberation Mono:size=9
+!xterm*faceName: DejaVu Sans Mono for Powerline:size=9
+!xterm*faceName: Liberation Mono:size=9
+xterm*faceName: hack
 
 ! Here is a pattern that is useful for double-clicking on a URL:
-XTerm*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
+xterm*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
 ! Alternatively,
-!XTerm*on2Clicks: regex [[:alpha:]]+://([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
+!xterm*on2Clicks: regex [[:alpha:]]+://([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
 
-XTerm*VT100*colorMode: on
-XTerm*VT100*dynamicColors: on
-XTerm*VT100*foreground: gray90
-XTerm*VT100*background: black
+xterm*VT100*colorMode: on
+xterm*VT100*dynamicColors: on
+xterm*VT100*foreground: gray90
+xterm*VT100*background: black
 
 !
 ! Underline settings.
 !
-XTerm*VT100*colorUL: yellow
+xterm*VT100*colorUL: yellow
 ! Uncomment this to use color for underline attribute
-XTerm*VT100*colorULMode: on
+xterm*VT100*colorULMode: on
 ! Set this 'off' to disable underlining, e.g., if colorULMode is set.
-XTerm*VT100*underLine: off
+xterm*VT100*underLine: off
 
 !
 ! Bold settings.
 !
-XTerm*VT100.allowBoldFonts: false
-XTerm*VT100.boldMode: false
-XTerm*VT100*boldColors: on
-XTerm*VT100*colorBD: cyan
+xterm*VT100.allowBoldFonts: false
+xterm*VT100.boldMode: false
+xterm*VT100*boldColors: on
+xterm*VT100*colorBD: cyan
 ! Uncomment this to use color for the bold attribute
-XTerm*VT100*colorBDMode: on
+xterm*VT100*colorBDMode: on
 
 !
 ! Set this 'on' to use bold/underline colors in preference to other colors.
@@ -54,7 +58,7 @@ XTerm*VT100*colorBDMode: on
 ! appropriate. Because of the configuration above, in no case will the
 ! character be underlined or emboldened.
 !
-XTerm*VT100*colorAttrMode: off
+xterm*VT100*colorAttrMode: off
 
 ! These are the 8 ANSI colors and their bright equivalents.  Depending on
 ! other resource settings, xterm may use the bright colors when displaying
@@ -71,44 +75,46 @@ XTerm*VT100*colorAttrMode: off
 !
 ! Blue text on a black background should be readable.
 ! Blue backgrounds should not be "too" bright.
-XTerm*VT100*color0:  #000000
-XTerm*VT100*color1:  #BF0000
-XTerm*VT100*color2:  #00BF00
-XTerm*VT100*color3:  #BFBF00
-XTerm*VT100*color4:  #5050BF
-XTerm*VT100*color5:  #BF00BF
-XTerm*VT100*color6:  #00BFBF
-XTerm*VT100*color7:  #BFBFBF
-XTerm*VT100*color8:  #000000
-XTerm*VT100*color9:  #FF0000
-XTerm*VT100*color10: #00FF00
-XTerm*VT100*color11: #FFFF00
-XTerm*VT100*color12: #8080FF
-XTerm*VT100*color13: #FF00FF
-XTerm*VT100*color14: #00FFFF
-XTerm*VT100*color15: #FFFFFF
+xterm*VT100*color0:  #000000
+xterm*VT100*color1:  #BF0000
+xterm*VT100*color2:  #00BF00
+xterm*VT100*color3:  #BFBF00
+xterm*VT100*color4:  #5050BF
+xterm*VT100*color5:  #BF00BF
+xterm*VT100*color6:  #00BFBF
+xterm*VT100*color7:  #BFBFBF
+xterm*VT100*color8:  #000000
+xterm*VT100*color9:  #FF0000
+xterm*VT100*color10: #00FF00
+xterm*VT100*color11: #FFFF00
+xterm*VT100*color12: #8080FF
+xterm*VT100*color13: #FF00FF
+xterm*VT100*color14: #00FFFF
+xterm*VT100*color15: #FFFFFF
 
-XTerm*pointerColorBackground: black
-XTerm*pointerColor:           green
-XTerm*pointerShape:           left_ptr
-XTerm*VT100.alternateScroll:  true
-XTerm*VT100.cursorColor:      cyan
-XTerm*VT100.dynamicColors:    on
-!XTerm*VT100.faceName:         Liberation Mono
-XTerm*VT100*geometry:         166x50
-!XTerm*VT100*renderFont:       default
-XTerm*VT100.saveLines:        8192
-XTerm*VT100.scrollBar:        true
-XTerm*VT100.scrollbar.translations:#override \n\
+xterm*pointerColorBackground: black
+xterm*pointerColor:           green
+xterm*pointerShape:           left_ptr
+xterm*VT100.alternateScroll:  true
+xterm*VT100.cursorColor:      cyan
+xterm*VT100.dynamicColors:    on
+!xterm*VT100.faceName:         Liberation Mono
+xterm*VT100*geometry:         80x24
+!xterm*VT100*renderFont:       default
+xterm*VT100.saveLines:        8192
+xterm*VT100.Scrollbar.foreground: #FFFFFF
+xterm*VT100.Scrollbar.background: #404040
+xterm*VT100.scrollBar:        true
+xterm*VT100.scrollbar.translations:#override \n\
   <Btn5Down>:StartScroll(Forward) \n\
   <Btn1Down>:StartScroll(Continuous) MoveThumb() NotifyThumb() \n\
   <Btn4Down>:StartScroll(Backward) \n\
   <Btn1Motion>:MoveThumb() NotifyThumb() \n\
   <BtnUp>: NotifyScroll(Proportional) EndScroll()
-XTerm*VT100.scrollKey:       true
-XTerm*VT100.scrollTtyOutput: false
-XTerm*VT100.visualBell:      true
-XTerm*VT100.visualBellLine:  true
+xterm*VT100.scrollKey:       true
+xterm*VT100.scrollTtyOutput: false
+xterm*VT100.visualBell:      true
+xterm*VT100.visualBellLine:  true
 
 Xcursor.core: 1
 
