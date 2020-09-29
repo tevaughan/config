@@ -56,6 +56,6 @@ highlight ExtraWhitespace ctermbg=blue guibg=blue
 match ExtraWhitespace /\s\+$/
 
 " Make sure that colorscheme (like inkpot) does not make wimpy status-line.
-highlight StatusLine   term=bold,reverse cterm=bold ctermfg=black ctermbg=lightgreen gui=bold guifg=black guibg=lightgreen
-highlight StatusLineNC term=bold,reverse cterm=bold ctermfg=black ctermbg=red   gui=bold guifg=black guibg=red
+highlight StatusLine   term=reverse ctermfg=black ctermbg=lightgreen gui=bold guifg=black guibg=lightgreen
+highlight StatusLineNC term=reverse ctermfg=black ctermbg=red        gui=bold guifg=black guibg=red
 
