@@ -25,6 +25,9 @@ xterm*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
 ! Alternatively,
 !xterm*on2Clicks: regex [[:alpha:]]+://([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
 
+! Allow sixel graphics.
+xterm*decTerminalID: 340
+
 xterm*VT100*colorMode: on
 xterm*VT100*dynamicColors: on
 xterm*VT100*foreground: gray90
