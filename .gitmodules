@@ -1,3 +1,0 @@
-[submodule "vim/cstol.vim"]
-	path = vim/cstol.vim
-	url = https://github.com/vim-scripts/cstol.vim.git

@@ -1,1 +1,0 @@
-../cstol.vim/syntax/cstol.vim

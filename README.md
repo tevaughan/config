@@ -3,8 +3,7 @@
 I am deprecating this repository as I move to the corresponding repository in
 my gitlab account.
 
-
-Configuration for vim, bash, and other programs.
+See https://gitlab.com/tevaughan/config instead.
 
 This repository contains configuration files in a structure that is relative to
 a user's home directory in a unix environment.
