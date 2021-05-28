@@ -99,6 +99,9 @@ xterm*dynamicColors: true
 xterm*pointerColorBackground: black
 xterm*pointerColor:           green
 xterm*pointerShape:           left_ptr
+XTerm.pointerColorBackground: black
+XTerm.pointerColor:           green
+XTerm.pointerShape:           left_ptr
 xterm*VT100.alternateScroll:  true
 xterm*VT100.cursorColor:      cyan
 xterm*VT100.dynamicColors:    on
